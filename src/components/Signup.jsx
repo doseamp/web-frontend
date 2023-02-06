@@ -7,11 +7,15 @@ const db = getFirestore();
 const Signup = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const [confirmPassword, setConfirmPassword] = useState();
   //   console.log({ email, password });
 
   const handleClick = {
     signup: async function (e) {
       e.preventDefault();
+
+      // confirm password
+      if (confirmPassword !== password) console.error("Mismatched passwords");
 
       try {
         // create user
@@ -47,7 +51,21 @@ const Signup = () => {
             setEmail(e.target.value);
           }}
         />
-        <input type="password" onChange={(e) => setPassword(e.target.value)} />
+
+        <label>Password</label>
+        <input
+          type="password"
+          minLength={8}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+
+        <label>Confirm Password</label>
+        <input
+          type="password"
+          minLength={8}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+        />
+
         <button type="submit">Sign up</button>
       </form>
     </div>
