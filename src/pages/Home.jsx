@@ -1,14 +1,15 @@
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import { addDoc, collection } from "@firebase/firestore";
 import { firestore } from "../firebase";
+import { AuthContext } from "../contexts/AuthContext";
 
 const Home = () => {
   const messageRef = useRef();
   const ref = collection(firestore, "names");
+  const { user } = useContext(AuthContext);
 
   const handleSave = async (e) => {
     e.preventDefault();
-    console.log(messageRef.current.value);
 
     let data = {
       name: messageRef.current.value,
@@ -24,6 +25,7 @@ const Home = () => {
   return (
     <div>
       <h1>Homepage</h1>
+      <h3>{user ? `Logged in as: ${user.email}` : `Logged out`}</h3>
 
       <form onSubmit={handleSave}>
         <label>Name</label>
