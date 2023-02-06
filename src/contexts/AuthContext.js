@@ -4,6 +4,7 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   onAuthStateChanged,
+  signOut,
 } from "firebase/auth";
 import { getFirestore, addDoc, collection } from "@firebase/firestore";
 
@@ -52,17 +53,23 @@ const AuthContextProvider = (props) => {
 
     signin: async function (email, password) {
       try {
-        const userCredential = await signInWithEmailAndPassword(
-          auth,
-          email,
-          password
-        );
+        await signInWithEmailAndPassword(auth, email, password);
 
-        const user = userCredential.user;
         return true;
       } catch (error) {
         console.error(error);
         return { error: error.message };
+      }
+    },
+
+    signout: async function () {
+      try {
+        await signOut(auth);
+
+        return true;
+      } catch (error) {
+        console.error(error);
+        return false;
       }
     },
   };

@@ -7,6 +7,7 @@ const Home = () => {
   const messageRef = useRef();
   const ref = collection(firestore, "names");
   const { user } = useContext(AuthContext);
+  const handleClick = useContext(AuthContext);
 
   const handleSave = async (e) => {
     e.preventDefault();
@@ -26,6 +27,7 @@ const Home = () => {
     <div>
       <h1>Homepage</h1>
       <h3>{user ? `Logged in as: ${user.email}` : `Logged out`}</h3>
+      <button onClick={handleClick.signout}>Sign out</button>
 
       <form onSubmit={handleSave}>
         <label>Name</label>
