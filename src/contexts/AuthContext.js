@@ -7,6 +7,7 @@ import {
   signOut,
 } from "firebase/auth";
 import { getFirestore, addDoc, collection } from "@firebase/firestore";
+import { signInWithGoogle } from "../firebase";
 
 const auth = getAuth();
 const db = getFirestore();
@@ -60,6 +61,10 @@ const AuthContextProvider = (props) => {
         console.error(error);
         return { error: error.message };
       }
+    },
+
+    googleSignin: async function () {
+      signInWithGoogle();
     },
 
     signout: async function () {

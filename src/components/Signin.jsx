@@ -27,6 +27,7 @@ const Signin = () => {
         <input type="password" onChange={(e) => setPassword(e.target.value)} />
 
         <button type="submit">Sign in</button>
+        <button onClick={handleClick.googleSignin}>Google signin</button>
       </form>
     </div>
   );
