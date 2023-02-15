@@ -1,11 +1,6 @@
 import React, { createContext, useEffect, useState } from "react";
 import axios from "axios";
-import {
-  getAuth,
-  onAuthStateChanged,
-  signOut,
-  sendPasswordResetEmail,
-} from "firebase/auth";
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { signInWithGoogle } from "../firebase";
 
 const baseUrl = process.env.REACT_APP_BASE_URL;
@@ -96,12 +91,36 @@ const AuthContextProvider = (props) => {
       }
     },
 
-    changePassword: async function (email) {
+    resetPassword: async function (email) {
       try {
-        await sendPasswordResetEmail(auth, email);
-        console.log("Password reset email sent");
+        await axios({
+          method: "post",
+          url: `${baseUrl}/auth/send-password-reset-email`,
+          headers: {
+            Authorization: user.idToken,
+          },
+          data: {
+            email,
+          },
+        });
       } catch (error) {
         console.error(error);
+        return { error: error.message };
+      }
+    },
+
+    forgotPassword: async function (email) {
+      try {
+        await axios({
+          method: "post",
+          url: `${baseUrl}/auth/send-forgot-password-email`,
+          data: {
+            email,
+          },
+        });
+      } catch (error) {
+        console.error(error);
+        return { error: error.message };
       }
     },
   };

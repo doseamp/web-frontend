@@ -5,7 +5,6 @@ const Signin = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const handleClick = useContext(AuthContext);
-  const { user } = useContext(AuthContext);
 
   return (
     <div>
@@ -33,11 +32,7 @@ const Signin = () => {
         <br />
 
         <button onClick={handleClick.googleSignin}>Google signin</button>
-        {user && (
-          <button onClick={() => handleClick.changePassword(user.email)}>
-            Change password?
-          </button>
-        )}
+        <br />
       </form>
     </div>
   );
