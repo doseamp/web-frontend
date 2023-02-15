@@ -2,9 +2,11 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 
 const Signup = () => {
+  const [firstName, setFirstName] = useState();
+  const [lastName, setLastName] = useState();
+  const [phoneNumber, setPhoneNumber] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const [confirmPassword, setConfirmPassword] = useState();
   const handleClick = useContext(AuthContext);
 
   return (
@@ -13,9 +15,25 @@ const Signup = () => {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          handleClick.signup(email, password, confirmPassword);
+          handleClick.signup(firstName, lastName, email, phoneNumber, password);
         }}
       >
+        <label>First Name</label>
+        <input
+          type="text"
+          onChange={(e) => {
+            setFirstName(e.target.value);
+          }}
+        />
+
+        <label>Last Name</label>
+        <input
+          type="text"
+          onChange={(e) => {
+            setLastName(e.target.value);
+          }}
+        />
+
         <label>Email</label>
         <input
           type="email"
@@ -24,18 +42,19 @@ const Signup = () => {
           }}
         />
 
+        <label>Phone</label>
+        <input
+          type="tel"
+          onChange={(e) => {
+            setPhoneNumber(e.target.value);
+          }}
+        />
+
         <label>Password</label>
         <input
           type="password"
           minLength={8}
           onChange={(e) => setPassword(e.target.value)}
-        />
-
-        <label>Confirm Password</label>
-        <input
-          type="password"
-          minLength={8}
-          onChange={(e) => setConfirmPassword(e.target.value)}
         />
 
         <button type="submit">Sign up</button>

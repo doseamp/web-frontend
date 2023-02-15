@@ -1,13 +1,15 @@
 import React, { createContext, useEffect, useState } from "react";
+import axios from "axios";
 import {
   getAuth,
   signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
+  sendPasswordResetEmail,
 } from "firebase/auth";
-import { getFirestore, addDoc, collection } from "@firebase/firestore";
+import { getFirestore } from "@firebase/firestore";
 import { signInWithGoogle } from "../firebase";
+const baseUrl = process.env.REACT_APP_BASE_URL;
 
 const auth = getAuth();
 const db = getFirestore();
@@ -24,28 +26,35 @@ const AuthContextProvider = (props) => {
   }, []);
 
   const handleClick = {
-    signup: async function (email, password, confirmPassword) {
-      // confirm password
-      if (confirmPassword !== password) {
-        console.error("Mismatched passwords");
-        return { error: "Mispatched passwords" };
-      }
-
+    signup: async function (firstName, lastName, email, phoneNumber, password) {
       try {
-        // create user
-        const userCredential = await createUserWithEmailAndPassword(
-          auth,
-          email,
-          password
-        );
-        const user = userCredential.user;
-
-        // save user to db
-        await addDoc(collection(db, "users"), {
-          uid: user.uid,
-          email: user.email,
+        const { data } = await axios({
+          method: "post",
+          url: `${baseUrl}/auth/register`,
+          data: {
+            firstName,
+            lastName,
+            email,
+            phoneNumber,
+            password,
+          },
         });
-        return true;
+        console.log(data);
+
+        // // create user
+        // const userCredential = await createUserWithEmailAndPassword(
+        //   auth,
+        //   email,
+        //   password
+        // );
+        // const user = userCredential.user;
+
+        // // save user to db
+        // await addDoc(collection(db, "users"), {
+        //   uid: user.uid,
+        //   email: user.email,
+        // });
+        // return true;
       } catch (error) {
         console.error(error);
         return { error: error.message };
@@ -75,6 +84,15 @@ const AuthContextProvider = (props) => {
       } catch (error) {
         console.error(error);
         return false;
+      }
+    },
+
+    changePassword: async function (email) {
+      try {
+        await sendPasswordResetEmail(auth, email);
+        console.log("Password reset email sent");
+      } catch (error) {
+        console.error(error);
       }
     },
   };
