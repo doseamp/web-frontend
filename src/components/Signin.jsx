@@ -23,11 +23,15 @@ const Signin = () => {
             setEmail(e.target.value);
           }}
         />
+        <br />
 
         <label>Password</label>
         <input type="password" onChange={(e) => setPassword(e.target.value)} />
+        <br />
 
         <button type="submit">Sign in</button>
+        <br />
+
         <button onClick={handleClick.googleSignin}>Google signin</button>
         {user && (
           <button onClick={() => handleClick.changePassword(user.email)}>

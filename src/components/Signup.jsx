@@ -25,6 +25,7 @@ const Signup = () => {
             setFirstName(e.target.value);
           }}
         />
+        <br />
 
         <label>Last Name</label>
         <input
@@ -33,6 +34,7 @@ const Signup = () => {
             setLastName(e.target.value);
           }}
         />
+        <br />
 
         <label>Email</label>
         <input
@@ -41,6 +43,7 @@ const Signup = () => {
             setEmail(e.target.value);
           }}
         />
+        <br />
 
         <label>Phone</label>
         <input
@@ -49,6 +52,7 @@ const Signup = () => {
             setPhoneNumber(e.target.value);
           }}
         />
+        <br />
 
         <label>Password</label>
         <input
@@ -56,6 +60,7 @@ const Signup = () => {
           minLength={8}
           onChange={(e) => setPassword(e.target.value)}
         />
+        <br />
 
         <button type="submit">Sign up</button>
       </form>

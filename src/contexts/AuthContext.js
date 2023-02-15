@@ -2,17 +2,14 @@ import React, { createContext, useEffect, useState } from "react";
 import axios from "axios";
 import {
   getAuth,
-  signInWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
   sendPasswordResetEmail,
 } from "firebase/auth";
-import { getFirestore } from "@firebase/firestore";
 import { signInWithGoogle } from "../firebase";
-const baseUrl = process.env.REACT_APP_BASE_URL;
 
+const baseUrl = process.env.REACT_APP_BASE_URL;
 const auth = getAuth();
-const db = getFirestore();
 
 export const AuthContext = createContext();
 
@@ -63,9 +60,21 @@ const AuthContextProvider = (props) => {
 
     signin: async function (email, password) {
       try {
-        await signInWithEmailAndPassword(auth, email, password);
+        const { data } = await axios({
+          method: "post",
+          url: `${baseUrl}/auth/login`,
+          data: {
+            email,
+            password,
+          },
+        });
 
-        return true;
+        setUser({
+          email: "user@email.com",
+          id: 1,
+        });
+
+        console.log(data);
       } catch (error) {
         console.error(error);
         return { error: error.message };
