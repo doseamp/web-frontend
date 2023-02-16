@@ -10,7 +10,7 @@ const ResetPassword = () => {
       <h1>Reset Password</h1>
 
       {user && (
-        <button onClick={handleClick.resetPassword(user.email)}>
+        <button onClick={() => handleClick.resetPassword(user.email)}>
           Reset password
         </button>
       )}
