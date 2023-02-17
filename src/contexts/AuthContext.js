@@ -37,21 +37,6 @@ const AuthContextProvider = (props) => {
           },
         });
         console.log(data);
-
-        // // create user
-        // const userCredential = await createUserWithEmailAndPassword(
-        //   auth,
-        //   email,
-        //   password
-        // );
-        // const user = userCredential.user;
-
-        // // save user to db
-        // await addDoc(collection(db, "users"), {
-        //   uid: user.uid,
-        //   email: user.email,
-        // });
-        // return true;
       } catch (error) {
         console.error(error);
         return { error: error.message };
