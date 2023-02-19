@@ -15,6 +15,7 @@ export const AuthContext = createContext();
 
 const AuthContextProvider = (props) => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -23,8 +24,20 @@ const AuthContextProvider = (props) => {
   }, []);
 
   const handleClick = {
-    signup: async function (firstName, lastName, email, phoneNumber, password) {
+    signup: async function (
+      firstName,
+      lastName,
+      email,
+      phoneNumber,
+      password,
+      confirmPassword
+    ) {
+      if (password !== confirmPassword) {
+        return Error({ error: "Mismatched password" });
+      }
+
       try {
+        setLoading(true);
         const { data } = await axios({
           method: "post",
           url: `${baseUrl}/auth/register`,
@@ -36,29 +49,38 @@ const AuthContextProvider = (props) => {
             password,
           },
         });
+        setLoading(false);
         console.log(data);
       } catch (error) {
         console.error(error);
+        setLoading(false);
         return { error: error.message };
       }
     },
 
     signin: async function (email, password) {
       try {
+        setLoading(true);
         await signInWithEmailAndPassword(auth, email, password);
+        setLoading(false);
       } catch (error) {
         console.error(error);
+        setLoading(false);
         return { error: error.message };
       }
     },
 
     googleSignin: async function () {
+      setLoading(true);
       signInWithGoogle();
+      setLoading(false);
     },
 
     signout: async function () {
       try {
+        setLoading(true);
         await signOut(auth);
+        setLoading(false);
 
         return true;
       } catch (error) {
@@ -69,6 +91,7 @@ const AuthContextProvider = (props) => {
 
     resetPassword: async function (email) {
       try {
+        setLoading(true);
         await axios({
           method: "post",
           url: `${baseUrl}/auth/send-password-reset-email`,
@@ -79,14 +102,17 @@ const AuthContextProvider = (props) => {
             email,
           },
         });
+        setLoading(false);
       } catch (error) {
         console.error(error);
+        setLoading(false);
         return { error: error.message };
       }
     },
 
     forgotPassword: async function (email) {
       try {
+        setLoading(true);
         await axios({
           method: "post",
           url: `${baseUrl}/auth/send-forgot-password-email`,
@@ -94,15 +120,17 @@ const AuthContextProvider = (props) => {
             email,
           },
         });
+        setLoading(false);
       } catch (error) {
         console.error(error);
+        setLoading(false);
         return { error: error.message };
       }
     },
   };
 
   return (
-    <AuthContext.Provider value={{ user, setUser, ...handleClick }}>
+    <AuthContext.Provider value={{ user, setUser, loading, ...handleClick }}>
       {props.children}
     </AuthContext.Provider>
   );

@@ -4,13 +4,9 @@ import DarkModeIcon from "@mui/icons-material/DarkMode";
 
 const Navbar = () => {
   return (
-    <AppBar position="static" sx={{ background: "#f5f5f5" }}>
+    <AppBar position="static" sx={{ background: "#ffffff", boxShadow: "none" }}>
       <Toolbar>
-        <img
-          src="logo-copy.png"
-          alt="logo"
-          style={{ width: 175, height: 90 }}
-        />
+        <img src="logo.png" alt="logo" style={{ width: 175, height: 90 }} />
 
         <Stack direction="row" sx={{ marginLeft: "auto" }}>
           <Button
