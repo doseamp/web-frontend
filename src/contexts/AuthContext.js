@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
 import {
   getAuth,
@@ -7,6 +7,7 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { signInWithGoogle } from "../firebase";
+import { UtilsContext } from "./UtilsContext";
 
 const baseUrl = process.env.REACT_APP_BASE_URL;
 const auth = getAuth();
@@ -16,6 +17,8 @@ export const AuthContext = createContext();
 const AuthContextProvider = (props) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
+  const { errorMsg } = useContext(UtilsContext);
+  const { setErrorMsg } = useContext(UtilsContext);
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -32,12 +35,14 @@ const AuthContextProvider = (props) => {
       password,
       confirmPassword
     ) {
-      if (password !== confirmPassword) {
-        return Error({ error: "Mismatched password" });
-      }
-
       try {
         setLoading(true);
+        if (password !== confirmPassword) {
+          setLoading(false);
+          setErrorMsg({ confirmPassword: "Passwords are not the same" });
+          throw Error("Passwords are not the same");
+        }
+
         const { data } = await axios({
           method: "post",
           url: `${baseUrl}/auth/register`,
@@ -52,7 +57,20 @@ const AuthContextProvider = (props) => {
         setLoading(false);
         console.log(data);
       } catch (error) {
-        console.error(error);
+        console.log("error");
+        console.error(error.response.data);
+        if (
+          error.response.data.message ===
+          "The email address is already in use by another account."
+        )
+          setErrorMsg({ email: "This email is already in use" });
+
+        if (error.response.data.message.includes("password"))
+          setErrorMsg({
+            password:
+              "Password must be at least 8 characters with 1 letter and 1 number",
+          });
+
         setLoading(false);
         return { error: error.message };
       }

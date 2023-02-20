@@ -11,10 +11,12 @@ import {
   Checkbox,
   Button,
   CircularProgress,
+  FormHelperText,
 } from "@mui/material";
 
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { AuthContext } from "../contexts/AuthContext";
+import { UtilsContext } from "../contexts/UtilsContext";
 
 const Signup = () => {
   const [firstName, setFirstName] = useState();
@@ -27,8 +29,10 @@ const Signup = () => {
   const [acceptMU, setAcceptMU] = useState(false);
   const [togglePassword, setTogglePassword] = useState("password");
   const [visibilityColor, setVisibilityColor] = useState("817e7e");
+
   const { loading } = useContext(AuthContext);
   const handleClick = useContext(AuthContext);
+  const { errorMsg } = useContext(UtilsContext);
 
   console.log(loading);
   const handleChange = {
@@ -44,8 +48,8 @@ const Signup = () => {
   return (
     <Container>
       <Grid container spacing={2} sx={{ px: 2 }}>
-        <Grid item xs={12} md={6} sx={{ ml: { md: 6 } }}>
-          <Typography variant="h4" sx={{ fontWeight: "bold", pb: 2 }}>
+        <Grid item xs={12} md={5} sx={{ ml: { md: 20 }, p: { md: 5 } }}>
+          <Typography variant="h4" sx={{ fontWeight: "bold", pb: 4 }}>
             Create Personal Account
           </Typography>
 
@@ -67,9 +71,13 @@ const Signup = () => {
               type="text"
               fullWidth
               required
+              size="small"
               sx={{ mt: 1, mb: 2 }}
               onChange={(e) => {
                 setFirstName(e.target.value);
+              }}
+              inputProps={{
+                minLength: 3,
               }}
             />
 
@@ -78,9 +86,13 @@ const Signup = () => {
               type="text"
               fullWidth
               required
+              size="small"
               sx={{ mt: 1, mb: 2 }}
               onChange={(e) => {
                 setLastName(e.target.value);
+              }}
+              inputProps={{
+                minLength: 3,
               }}
             />
 
@@ -89,20 +101,31 @@ const Signup = () => {
               type="email"
               fullWidth
               required
-              sx={{ mt: 1, mb: 2 }}
+              size="small"
+              sx={{ mt: 1 }}
               onChange={(e) => {
                 setEmail(e.target.value);
               }}
             />
+            <FormHelperText error sx={{ mb: 2 }}>
+              {errorMsg.email}
+            </FormHelperText>
 
             <label>Phone Number</label>
             <TextField
               type="tel"
               fullWidth
               required
+              size="small"
               sx={{ mt: 1, mb: 2 }}
               onChange={(e) => {
                 setPhoneNumber(e.target.value);
+              }}
+              inputProps={{
+                inputMode: "numeric",
+                pattern: "[0-9]*",
+                minLength: 10,
+                maxLength: 12,
               }}
             />
 
@@ -111,7 +134,8 @@ const Signup = () => {
               type={togglePassword}
               fullWidth
               required
-              sx={{ mt: 1, mb: 2 }}
+              size="small"
+              sx={{ mt: 1 }}
               InputProps={{
                 endAdornment: (
                   <InputAdornment
@@ -133,15 +157,22 @@ const Signup = () => {
               }}
               onChange={(e) => setPassword(e.target.value)}
             />
+            <FormHelperText error sx={{ mb: 2 }}>
+              {errorMsg.password}
+            </FormHelperText>
 
             <label>Confirm Password</label>
             <TextField
               type="password"
               fullWidth
               required
-              sx={{ mt: 1, mb: 2 }}
+              size="small"
+              sx={{ mt: 1 }}
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
+            <FormHelperText error sx={{ mb: 2 }}>
+              {errorMsg.confirmPassword}
+            </FormHelperText>
 
             <FormControlLabel
               label="I have read and agreed to Payonize Terms of Service and Privacy Policy"
@@ -164,7 +195,7 @@ const Signup = () => {
               type="submit"
               variant="contained"
               fullWidth
-              disabled={acceptTnC === false || acceptMU === false}
+              disabled={acceptTnC === false || loading}
               sx={{
                 py: 1.5,
                 px: 3,
@@ -174,7 +205,7 @@ const Signup = () => {
               }}
             >
               {loading ? (
-                <CircularProgress size={"1.5rem"} sx={{ color: "#ffffff" }} />
+                <CircularProgress size={"1.5rem"} sx={{ color: "#54adf3" }} />
               ) : (
                 "Create Personal Account"
               )}

@@ -13,10 +13,10 @@ const Navbar = () => {
             size="large"
             sx={{ borderRadius: 0, borderRight: 1, color: "#000000" }}
           >
-            <LanguageIcon />
+            <LanguageIcon fontSize="small" />
           </Button>
           <Button size="large" sx={{ color: "#817e7e" }}>
-            <DarkModeIcon />
+            <DarkModeIcon fontSize="small" />
           </Button>
         </Stack>
       </Toolbar>
