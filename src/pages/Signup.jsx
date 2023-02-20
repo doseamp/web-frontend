@@ -47,7 +47,7 @@ const Signup = () => {
 
   return (
     <Container>
-      <Grid container spacing={2} sx={{ px: 2 }}>
+      <Grid container spacing={2} sx={{ px: 2 }} alignItems="center">
         <Grid item xs={12} md={5} sx={{ ml: { md: 20 }, p: { md: 5 } }}>
           <Typography variant="h4" sx={{ fontWeight: "bold", pb: 4 }}>
             Create Personal Account
@@ -202,6 +202,11 @@ const Signup = () => {
                 mt: 2,
                 fontWeight: "bold",
                 textTransform: "capitalize",
+                color: "#000000",
+                background: "#54adf3",
+                ":hover": {
+                  background: "#54adf3",
+                },
               }}
             >
               {loading ? (
@@ -210,13 +215,14 @@ const Signup = () => {
                 "Create Personal Account"
               )}
             </Button>
-            <Typography sx={{ mt: 2 }}>
-              Already have an account?{" "}
-              <Link to="/signin" style={{ color: "#54adf3" }}>
-                Log In
-              </Link>
-            </Typography>
           </form>
+
+          <Typography sx={{ mt: 2 }}>
+            Already have an account?{" "}
+            <Link to="/login" style={{ color: "#54adf3" }}>
+              Log In
+            </Link>
+          </Typography>
         </Grid>
       </Grid>
     </Container>

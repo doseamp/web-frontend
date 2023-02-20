@@ -17,7 +17,6 @@ export const AuthContext = createContext();
 const AuthContextProvider = (props) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
-  const { errorMsg } = useContext(UtilsContext);
   const { setErrorMsg } = useContext(UtilsContext);
 
   useEffect(() => {
@@ -76,7 +75,7 @@ const AuthContextProvider = (props) => {
       }
     },
 
-    signin: async function (email, password) {
+    login: async function (email, password) {
       try {
         setLoading(true);
         await signInWithEmailAndPassword(auth, email, password);
@@ -88,7 +87,7 @@ const AuthContextProvider = (props) => {
       }
     },
 
-    googleSignin: async function () {
+    googleLogin: async function () {
       setLoading(true);
       signInWithGoogle();
       setLoading(false);
