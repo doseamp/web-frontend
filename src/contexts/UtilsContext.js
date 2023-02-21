@@ -7,10 +7,14 @@ const UtilsContextProvider = (props) => {
     email: null,
     password: null,
     confirmPassword: null,
+    passwordLogin: null,
   });
+  const [loading, setLoading] = useState(false);
 
   return (
-    <UtilsContext.Provider value={{ errorMsg, setErrorMsg }}>
+    <UtilsContext.Provider
+      value={{ errorMsg, setErrorMsg, loading, setLoading }}
+    >
       {props.children}
     </UtilsContext.Provider>
   );

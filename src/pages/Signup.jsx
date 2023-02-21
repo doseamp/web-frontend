@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { Container } from "@mui/system";
 import {
@@ -15,8 +15,8 @@ import {
 } from "@mui/material";
 
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import { AuthContext } from "../contexts/AuthContext";
 import { UtilsContext } from "../contexts/UtilsContext";
+import { signup } from "../utils/AuthFn";
 
 const Signup = () => {
   const [firstName, setFirstName] = useState();
@@ -30,11 +30,55 @@ const Signup = () => {
   const [togglePassword, setTogglePassword] = useState("password");
   const [visibilityColor, setVisibilityColor] = useState("817e7e");
 
-  const { loading } = useContext(AuthContext);
-  const handleClick = useContext(AuthContext);
-  const { errorMsg } = useContext(UtilsContext);
-
+  // const { loading } = useContext(UtilsContext);
+  const { errorMsg, loading } = useContext(UtilsContext);
+  const { setErrorMsg } = useContext(UtilsContext);
+  const { setLoading } = useContext(UtilsContext);
+  const navigate = useNavigate();
   console.log(loading);
+
+  const handleClick = async (
+    firstName,
+    lastName,
+    email,
+    phoneNumber,
+    password,
+    confirmPassword
+  ) => {
+    try {
+      setLoading(true);
+      if (password !== confirmPassword) {
+        setErrorMsg({ confirmPassword: "Passwords are not the same" });
+        setTimeout(() => {
+          setErrorMsg({ confirmPassword: null });
+        }, 5000);
+        throw Error("Passwords are not the same");
+      }
+
+      await signup(firstName, lastName, email, phoneNumber, password);
+      setLoading(false);
+      navigate("/login");
+    } catch (error) {
+      setLoading(false);
+      if (error.message.includes("email")) {
+        setErrorMsg({ email: "This email is already in use" });
+        setTimeout(() => {
+          setErrorMsg({ email: null });
+        }, 5000);
+      }
+
+      if (error.message.includes("password")) {
+        setErrorMsg({
+          password:
+            "Password must be at least 8 characters with 1 letter and 1 number",
+        });
+        setTimeout(() => {
+          setErrorMsg({ password: null });
+        }, 5000);
+      }
+    }
+  };
+
   const handleChange = {
     acceptTnC: function (e) {
       setAcceptTnC(e.target.checked);
@@ -56,7 +100,7 @@ const Signup = () => {
           <form
             onSubmit={(e) => {
               e.preventDefault();
-              handleClick.signup(
+              handleClick(
                 firstName,
                 lastName,
                 email,
@@ -210,7 +254,7 @@ const Signup = () => {
               }}
             >
               {loading ? (
-                <CircularProgress size={"1.5rem"} sx={{ color: "#54adf3" }} />
+                <CircularProgress size={"1.5rem"} sx={{ color: "#ffffff" }} />
               ) : (
                 "Create Personal Account"
               )}

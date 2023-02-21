@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import {
   Container,
@@ -17,7 +17,9 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import GoogleIcon from "@mui/icons-material/Google";
 import AppleIcon from "@mui/icons-material/Apple";
 
-import { AuthContext } from "../contexts/AuthContext";
+import { UtilsContext } from "../contexts/UtilsContext";
+import { login } from "../utils/AuthFn";
+import { googleLogin } from "../utils/AuthFn";
 
 const Login = () => {
   const [email, setEmail] = useState();
@@ -25,9 +27,32 @@ const Login = () => {
   const [togglePassword, setTogglePassword] = useState("password");
   const [visibilityColor, setVisibilityColor] = useState("817e7e");
 
-  const { loading } = useContext(AuthContext);
+  const { loading } = useContext(UtilsContext);
+  const { errorMsg } = useContext(UtilsContext);
+  const { setErrorMsg } = useContext(UtilsContext);
+  const { setLoading } = useContext(UtilsContext);
+  const navigate = useNavigate();
 
-  const handleClick = useContext(AuthContext);
+  const handleClick = {
+    login: async (email, password) => {
+      try {
+        setLoading(true);
+        await login(email, password);
+        setLoading(false);
+        navigate("/");
+      } catch (error) {
+        setLoading(false);
+        setErrorMsg({ passwordLogin: "Incorrect email or password" });
+        setTimeout(() => {
+          setErrorMsg({ passwordLogin: null });
+        }, 5000);
+      }
+    },
+
+    googleLogin: async () => {
+      await googleLogin();
+    },
+  };
 
   return (
     <Container>
@@ -89,7 +114,9 @@ const Login = () => {
               }}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <FormHelperText error sx={{ mb: 2 }}></FormHelperText>
+            <FormHelperText error sx={{ mb: 2 }}>
+              {errorMsg.passwordLogin}
+            </FormHelperText>
 
             <Button
               type="submit"
@@ -99,7 +126,7 @@ const Login = () => {
               sx={{
                 py: 1.5,
                 px: 3,
-                mt: 2,
+                mt: 1,
                 mb: 1,
                 fontWeight: "bold",
                 textTransform: "capitalize",
@@ -111,7 +138,7 @@ const Login = () => {
               }}
             >
               {loading ? (
-                <CircularProgress size={"1.5rem"} sx={{ color: "#54adf3" }} />
+                <CircularProgress size={"1.5rem"} sx={{ color: "#ffffff" }} />
               ) : (
                 "Login"
               )}
@@ -157,7 +184,9 @@ const Login = () => {
                 background: "#b4b2b2",
               },
             }}
-            onClick={handleClick.googleLogin}
+            onClick={async () => {
+              await handleClick.googleLogin();
+            }}
           >
             <Box display="flex" alignItems="center" justifyContent="center">
               <GoogleIcon sx={{ mr: 1 }} /> <span>Continue with Google</span>

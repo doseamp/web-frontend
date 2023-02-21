@@ -5,7 +5,6 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-import AuthContextProvider from "./contexts/AuthContext";
 import RootLayout from "./layouts/RootLayout";
 
 // pages
@@ -26,9 +25,7 @@ const router = createBrowserRouter(
 function App() {
   return (
     <div className="App">
-      <AuthContextProvider>
-        <RouterProvider router={router} />
-      </AuthContextProvider>
+      <RouterProvider router={router} />
     </div>
   );
 }

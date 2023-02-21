@@ -22,6 +22,7 @@ export const signInWithGoogle = () => {
   signInWithPopup(auth, provider)
     .then((result) => {
       console.log(result);
+      window.location.replace("/");
     })
     .catch((error) => console.error(error));
 };
