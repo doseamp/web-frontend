@@ -34,6 +34,7 @@ const Signup = () => {
   const [phoneErr, setPhoneErr] = useState(null);
   const [togglePassword, setTogglePassword] = useState("password");
   const [visibilityColor, setVisibilityColor] = useState("817e7e");
+  const [defaultCountry, setDefaultCountry] = useState("");
   const [country, setCountry] = useState("");
   const [countryCode, setCountryCode] = useState("");
 
@@ -42,6 +43,7 @@ const Signup = () => {
   const { setLoading } = useContext(UtilsContext);
   const navigate = useNavigate();
   console.log(loading);
+  console.log({ country });
 
   const handleClick = async (
     firstName,
@@ -112,15 +114,15 @@ const Signup = () => {
     fetch("http://ip-api.com/json")
       .then((res) => res.json())
       .then((response) => {
-        setCountry(response.country);
-        const name = countries.find((item) => item.name === country);
+        setDefaultCountry(response.country);
+        const name = countries.find((item) => item.name === defaultCountry);
         setCountryCode(name.mobileCode);
-        console.log(country);
+        setCountry(defaultCountry);
       })
       .catch((data, status) => {
         ("Request failed");
       });
-  }, []);
+  }, [defaultCountry]);
 
   return (
     <Container>
