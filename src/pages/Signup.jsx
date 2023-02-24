@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import { Container } from "@mui/system";
@@ -12,11 +12,15 @@ import {
   Button,
   CircularProgress,
   FormHelperText,
+  MenuItem,
+  Box,
 } from "@mui/material";
 
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+
 import { UtilsContext } from "../contexts/UtilsContext";
 import { signup } from "../utils/AuthFn";
+import { countries } from "../utils/Countries";
 
 const Signup = () => {
   const [firstName, setFirstName] = useState();
@@ -27,10 +31,12 @@ const Signup = () => {
   const [confirmPassword, setConfirmPassword] = useState();
   const [acceptTnC, setAcceptTnC] = useState(false);
   const [acceptMU, setAcceptMU] = useState(false);
+  const [phoneErr, setPhoneErr] = useState(null);
   const [togglePassword, setTogglePassword] = useState("password");
   const [visibilityColor, setVisibilityColor] = useState("817e7e");
+  const [country, setCountry] = useState("");
+  const [countryCode, setCountryCode] = useState("");
 
-  // const { loading } = useContext(UtilsContext);
   const { errorMsg, loading } = useContext(UtilsContext);
   const { setErrorMsg } = useContext(UtilsContext);
   const { setLoading } = useContext(UtilsContext);
@@ -87,7 +93,34 @@ const Signup = () => {
     acceptMU: function (e) {
       setAcceptMU(e.target.checked);
     },
+
+    changeCountry: function (e) {
+      setCountry(e.target.value);
+    },
+
+    setPhoneErr: function (length) {
+      console.log(length.length);
+      if (length.length < 5 || length.length > 14) {
+        setPhoneErr("Please enter a valid phone number.");
+      } else {
+        setPhoneErr(null);
+      }
+    },
   };
+
+  useMemo(() => {
+    fetch("http://ip-api.com/json")
+      .then((res) => res.json())
+      .then((response) => {
+        setCountry(response.country);
+        const name = countries.find((item) => item.name === country);
+        setCountryCode(name.mobileCode);
+        console.log(country);
+      })
+      .catch((data, status) => {
+        ("Request failed");
+      });
+  }, []);
 
   return (
     <Container>
@@ -156,22 +189,40 @@ const Signup = () => {
             </FormHelperText>
 
             <label>Phone Number</label>
-            <TextField
-              type="tel"
-              fullWidth
-              required
-              size="small"
-              sx={{ mt: 1, mb: 2 }}
-              onChange={(e) => {
-                setPhoneNumber(e.target.value);
-              }}
-              inputProps={{
-                inputMode: "numeric",
-                pattern: "[0-9]*",
-                minLength: 10,
-                maxLength: 12,
-              }}
-            />
+
+            <Box display={"flex"}>
+              <TextField
+                select
+                sx={{ mt: 1, mr: 2 }}
+                value={country}
+                onChange={handleChange.changeCountry}
+                size="small"
+              >
+                {countries.map((country) => (
+                  <MenuItem value={country.name} key={country.name}>
+                    {country.mobileCode}: {country.code}
+                  </MenuItem>
+                ))}
+              </TextField>
+
+              <TextField
+                type="number"
+                fullWidth
+                required
+                size="small"
+                sx={{ mt: 1 }}
+                onChange={(e) => {
+                  const digits = e.target.valueAsNumber;
+                  setPhoneNumber(`${countryCode}${digits}`);
+                  handleChange.setPhoneErr(e.target.value);
+                  console.log(phoneNumber);
+                }}
+                onMouseOut={(e) => {}}
+              />
+            </Box>
+            <FormHelperText error sx={{ mb: 2 }}>
+              {phoneErr}
+            </FormHelperText>
 
             <label>Password</label>
             <TextField
@@ -239,7 +290,7 @@ const Signup = () => {
               type="submit"
               variant="contained"
               fullWidth
-              disabled={acceptTnC === false || loading}
+              disabled={acceptTnC === false || loading || phoneErr !== null}
               sx={{
                 py: 1.5,
                 px: 3,
