@@ -112,7 +112,7 @@ const MobileMenu = ({ pages }) => {
           ))}
 
           <Button
-            size="small"
+            size="medium"
             sx={{
               py: 2,
               px: 2,
@@ -131,6 +131,7 @@ const MobileMenu = ({ pages }) => {
               style={{
                 textDecoration: "none",
                 color: "#000000",
+                fontWeight: "bold",
               }}
             >
               Sign up
