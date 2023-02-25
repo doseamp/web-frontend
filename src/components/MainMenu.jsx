@@ -1,158 +1,46 @@
 import { Stack, Button } from "@mui/material";
 import { Link } from "react-router-dom";
 
-const MainMenu = () => {
+const MainMenu = ({ pages }) => {
   return (
     <Stack
       direction="row"
       sx={{
         marginLeft: "auto",
+        display: {
+          xs: "none",
+          md: "flex",
+        },
       }}
     >
-      <Button
-        size="small"
-        sx={{
-          py: 1,
-          px: 2,
-          mx: 1,
-          fontWeight: "bold",
-          textTransform: "capitalize",
-          background: "#ffffff",
-          ":hover": {
-            boxShadow: "#54adf3",
-          },
-        }}
-      >
-        <Link
-          to="/"
-          style={{
-            textDecoration: "none",
-            color: "#000000",
+      {pages.map((page) => (
+        <Button
+          key={page.name}
+          size="small"
+          sx={{
+            py: 1,
+            px: 2,
+            mx: 1,
+            fontWeight: "bold",
+            textTransform: "capitalize",
+            background: "#ffffff",
+            ":hover": {
+              boxShadow: "#54adf3",
+            },
           }}
         >
-          Company
-        </Link>
-      </Button>
-      <Button
-        size="small"
-        sx={{
-          py: 1,
-          px: 2,
-          mx: 1,
-          fontWeight: "bold",
-          textTransform: "capitalize",
-          background: "#ffffff",
-          ":hover": {
-            boxShadow: "#54adf3",
-          },
-        }}
-      >
-        <Link
-          to="/"
-          style={{
-            textDecoration: "none",
-            color: "#000000",
-          }}
-        >
-          Payments
-        </Link>
-      </Button>
-      <Button
-        size="small"
-        sx={{
-          py: 1,
-          px: 2,
-          mx: 1,
-          fontWeight: "bold",
-          textTransform: "capitalize",
-          background: "#ffffff",
-          ":hover": {
-            boxShadow: "#54adf3",
-          },
-        }}
-      >
-        <Link
-          to="/"
-          style={{
-            textDecoration: "none",
-            color: "#000000",
-          }}
-        >
-          Trade
-        </Link>
-      </Button>
-      <Button
-        size="small"
-        sx={{
-          py: 1,
-          px: 2,
-          mx: 1,
-          fontWeight: "bold",
-          textTransform: "capitalize",
-          background: "#ffffff",
-          ":hover": {
-            boxShadow: "#54adf3",
-          },
-        }}
-      >
-        <Link
-          to="/"
-          style={{
-            textDecoration: "none",
-            color: "#000000",
-          }}
-        >
-          Help center
-        </Link>
-      </Button>
-      <Button
-        size="small"
-        sx={{
-          py: 1,
-          px: 2,
-          mx: 1,
-          fontWeight: "bold",
-          textTransform: "capitalize",
-          background: "#ffffff",
-          ":hover": {
-            boxShadow: "#54adf3",
-          },
-        }}
-      >
-        <Link
-          to="/"
-          style={{
-            textDecoration: "none",
-            color: "#000000",
-          }}
-        >
-          English
-        </Link>
-      </Button>
-      <Button
-        size="small"
-        sx={{
-          py: 1,
-          px: 2,
-          mx: 1,
-          fontWeight: "bold",
-          textTransform: "capitalize",
-          background: "#ffffff",
-          ":hover": {
-            boxShadow: "#54adf3",
-          },
-        }}
-      >
-        <Link
-          to="/login"
-          style={{
-            textDecoration: "none",
-            color: "#000000",
-          }}
-        >
-          Login
-        </Link>
-      </Button>
+          <Link
+            to={page.route}
+            style={{
+              textDecoration: "none",
+              color: "#000000",
+            }}
+          >
+            {page.name}
+          </Link>
+        </Button>
+      ))}
+
       <Button
         size="small"
         sx={{
