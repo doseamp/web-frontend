@@ -45,6 +45,7 @@ const MobileMenu = ({ pages }) => {
       >
         <Box display="flex" sx={{ mt: 2 }}>
           <Button
+            className="buttonStyle"
             onClick={() => setOpenDrawer(false)}
             sx={{
               fontWeight: "bold",
@@ -66,6 +67,7 @@ const MobileMenu = ({ pages }) => {
           </Button>
 
           <Button
+            className="buttonStyle"
             onClick={() => setOpenDrawer(false)}
             sx={{
               mr: 2,
@@ -82,6 +84,7 @@ const MobileMenu = ({ pages }) => {
         <List>
           {pages.map((page) => (
             <ListItemButton
+              className="buttonStyle"
               key={page.name}
               sx={{
                 my: 2,
@@ -112,6 +115,7 @@ const MobileMenu = ({ pages }) => {
           ))}
 
           <Button
+            className="buttonStyle"
             size="medium"
             sx={{
               py: 2,

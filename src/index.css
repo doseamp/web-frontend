@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Sora:wght@600;700&family=Ubuntu:wght@700&display=swap");
 
 * {
   margin: 0;
@@ -8,10 +8,18 @@
 body {
   color: #000000;
   background: #ffffff;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Lato", sans-serif;
 }
 
 main {
   max-width: 1200px;
   margin: 40px auto;
+}
+
+.headingStyle {
+  font-family: "Sora", sans-serif;
+}
+
+.buttonStyle {
+  font-family: "Ubuntu", sans-serif;
 }

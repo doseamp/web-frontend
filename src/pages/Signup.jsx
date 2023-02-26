@@ -128,7 +128,11 @@ const Signup = () => {
     <Container>
       <Grid container spacing={2} sx={{ px: 2 }} alignItems="center">
         <Grid item xs={12} md={5} sx={{ ml: { md: 20 }, p: { md: 5 } }}>
-          <Typography variant="h4" sx={{ fontWeight: "bold", pb: 4 }}>
+          <Typography
+            className="headingStyle"
+            variant="h4"
+            sx={{ fontWeight: "bold", pb: 4 }}
+          >
             Create Personal Account
           </Typography>
 
@@ -289,6 +293,7 @@ const Signup = () => {
             />
 
             <Button
+              className="buttonStyle"
               type="submit"
               variant="contained"
               fullWidth

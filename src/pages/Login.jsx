@@ -64,7 +64,11 @@ const Login = () => {
         direction="row-reverse"
       >
         <Grid item xs={12} md={4} sx={{ mr: { md: 15 }, p: { md: 5 } }}>
-          <Typography variant="h4" sx={{ fontWeight: "bold", pb: 4 }}>
+          <Typography
+            className="headingStyle"
+            variant="h4"
+            sx={{ fontWeight: "bold", pb: 4 }}
+          >
             Payonize Login
           </Typography>
 
@@ -119,6 +123,7 @@ const Login = () => {
             </FormHelperText>
 
             <Button
+              className="buttonStyle"
               type="submit"
               variant="contained"
               fullWidth
@@ -171,6 +176,7 @@ const Login = () => {
           </Box>
 
           <Button
+            className="buttonStyle"
             variant="contained"
             fullWidth
             sx={{
@@ -194,6 +200,7 @@ const Login = () => {
           </Button>
 
           <Button
+            className="buttonStyle"
             variant="contained"
             fullWidth
             sx={{

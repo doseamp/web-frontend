@@ -15,6 +15,7 @@ const MainMenu = ({ pages }) => {
     >
       {pages.map((page) => (
         <Button
+          className="buttonStyle"
           key={page.name}
           size="small"
           sx={{
@@ -42,6 +43,7 @@ const MainMenu = ({ pages }) => {
       ))}
 
       <Button
+        className="buttonStyle"
         size="small"
         sx={{
           py: 1,
