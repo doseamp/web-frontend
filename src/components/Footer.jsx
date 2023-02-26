@@ -1,5 +1,4 @@
-import { Box, IconButton, Typography } from "@mui/material";
-import { Stack } from "@mui/system";
+import { Box, IconButton, Typography, Stack } from "@mui/material";
 
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
@@ -35,9 +34,19 @@ const Footer = () => {
   ];
 
   return (
-    <Box sx={{ px: 8 }}>
-      <Box display="flex" sx={{ background: "#f5f5f5" }}>
-        <Stack direction="row" sx={{ alignItems: "center", pl: 2 }}>
+    <Box sx={{ px: { md: 8 } }}>
+      <Box
+        display="flex"
+        sx={{
+          background: "#f5f5f5",
+          flexDirection: { xs: "column", md: "row" },
+          alignItems: "center",
+        }}
+      >
+        <Stack
+          direction="row"
+          sx={{ alignItems: "center", pl: 2, pt: { xs: 2, md: 0 } }}
+        >
           <img
             src="nigeria.png"
             alt="Nigeria"
@@ -46,7 +55,14 @@ const Footer = () => {
           <Typography sx={{ ml: 2 }}>Nigeria</Typography>
         </Stack>
 
-        <Stack direction="row" sx={{ ml: "auto" }}>
+        <Stack
+          direction="row"
+          sx={{
+            ml: {
+              md: "auto",
+            },
+          }}
+        >
           {socialMedia.map((item) => (
             <IconButton
               key={item.name}
@@ -72,19 +88,38 @@ const Footer = () => {
           </IconButton>
         </Stack>
       </Box>
-      <Box display="flex" sx={{ px: 16, py: 2 }}>
-        <Typography>Payonize &copy;2023</Typography>
-        <Stack direction="row" sx={{ ml: "auto" }}>
-          <Link to="/" style={{ margin: "0 16px", color: "#000000" }}>
+
+      <Box
+        display="flex"
+        sx={{
+          px: { xs: 2, md: 16 },
+          py: 2,
+          flexDirection: { xs: "column", md: "row" },
+          alignItems: "center",
+        }}
+      >
+        <Typography sx={{ m: 2 }}>Payonize &copy;2023</Typography>
+        <Stack
+          direction={{
+            xs: "column",
+            md: "row",
+          }}
+          sx={{
+            ml: {
+              md: "auto",
+            },
+          }}
+        >
+          <Link to="/" style={{ margin: "16px 16px", color: "#000000" }}>
             Privacy Policy
           </Link>
-          <Link to="/" style={{ margin: "0 16px", color: "#000000" }}>
+          <Link to="/" style={{ margin: "16px 16px", color: "#000000" }}>
             Terms of Use
           </Link>
           <Link
             to="/"
             style={{
-              margin: "0 16px",
+              margin: "16px 16px",
               color: "#000000",
             }}
           >
