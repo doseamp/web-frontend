@@ -14,7 +14,6 @@ import {
 } from "@mui/material";
 
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import GoogleIcon from "@mui/icons-material/Google";
 import AppleIcon from "@mui/icons-material/Apple";
 
 import { UtilsContext } from "../contexts/UtilsContext";
@@ -195,7 +194,12 @@ const Login = () => {
             }}
           >
             <Box display="flex" alignItems="center" justifyContent="center">
-              <GoogleIcon sx={{ mr: 1 }} /> <span>Continue with Google</span>
+              <img
+                src="google.png"
+                alt="Nigeria"
+                style={{ width: "25px", height: "25px" }}
+              />
+              <span style={{ marginLeft: "8px" }}>Continue with Google</span>
             </Box>
           </Button>
 

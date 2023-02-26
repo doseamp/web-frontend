@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 
 import MenuIcon from "@mui/icons-material/Menu";
 import { useState } from "react";
-import { Box } from "@mui/system";
+import { Box } from "@mui/material";
 
 const MobileMenu = ({ pages }) => {
   const [openDrawer, setOpenDrawer] = useState(false);
