@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import { Button, Container, Grid, Typography } from "@mui/material";
+import { Button, Box, Grid, Typography } from "@mui/material";
 
 const Showcase = () => {
   return (
-    <Container maxWidth="xl">
+    <Box maxWidth="xl">
       <Grid container spacing={2} alignItems="center">
         <Grid item xs={12} md={6}>
           <Typography
@@ -44,7 +44,7 @@ const Showcase = () => {
           </Link>
         </Grid>
       </Grid>
-    </Container>
+    </Box>
   );
 };
 
