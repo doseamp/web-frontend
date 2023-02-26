@@ -44,27 +44,27 @@ const MobileMenu = ({ pages }) => {
         }}
       >
         <Box display="flex" sx={{ mt: 2 }}>
-          <Button
-            className="buttonStyle"
-            onClick={() => setOpenDrawer(false)}
-            sx={{
-              fontWeight: "bold",
-              fontSize: "1.5rem",
-              pl: 2,
+          <Link
+            to="/"
+            style={{
+              textDecoration: "none",
+              textTransform: "capitalize",
             }}
-            size="large"
           >
-            <Link
-              to="/"
-              style={{
-                textDecoration: "none",
-                textTransform: "capitalize",
+            <Button
+              className="buttonStyle"
+              onClick={() => setOpenDrawer(false)}
+              sx={{
                 color: "#000000",
+                fontWeight: "bold",
+                fontSize: "1.5rem",
+                pl: 2,
               }}
+              size="large"
             >
               Payonize
-            </Link>
-          </Button>
+            </Button>
+          </Link>
 
           <Button
             className="buttonStyle"
@@ -114,33 +114,33 @@ const MobileMenu = ({ pages }) => {
             </ListItemButton>
           ))}
 
-          <Button
-            className="buttonStyle"
-            size="medium"
-            sx={{
-              py: 2,
-              px: 2,
-              width: "100%",
+          <Link
+            to="/signup"
+            style={{
+              textDecoration: "none",
               fontWeight: "bold",
-              textTransform: "capitalize",
-              background: "#54adf3",
-              ":hover": {
-                background: "#54adf3",
-              },
             }}
-            onClick={() => setOpenDrawer(false)}
           >
-            <Link
-              to="/signup"
-              style={{
-                textDecoration: "none",
+            <Button
+              className="buttonStyle"
+              size="medium"
+              sx={{
+                py: 2,
+                px: 2,
+                width: "100%",
                 color: "#000000",
                 fontWeight: "bold",
+                textTransform: "capitalize",
+                background: "#54adf3",
+                ":hover": {
+                  background: "#54adf3",
+                },
               }}
+              onClick={() => setOpenDrawer(false)}
             >
               Sign up
-            </Link>
-          </Button>
+            </Button>
+          </Link>
         </List>
       </Drawer>
     </Stack>
