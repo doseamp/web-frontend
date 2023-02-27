@@ -8,7 +8,7 @@ const Showcase = () => {
         pb: 4,
         px: {
           xs: 2,
-          md: 4,
+          md: 8,
         },
       }}
     >

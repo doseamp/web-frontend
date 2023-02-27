@@ -8,7 +8,7 @@ const Guide = () => {
         py: 4,
         px: {
           xs: 2,
-          md: 4,
+          md: 8,
         },
         background: "#f5f5f5",
         borderRadius: "2px",
