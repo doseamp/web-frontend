@@ -34,13 +34,14 @@ const Footer = () => {
   ];
 
   return (
-    <Box sx={{ px: { md: 8 } }}>
+    <Box>
       <Box
         display="flex"
         sx={{
           background: "#f5f5f5",
           flexDirection: { xs: "column", md: "row" },
           alignItems: "center",
+          px: { md: 8 },
         }}
       >
         <Stack
