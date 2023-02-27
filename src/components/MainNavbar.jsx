@@ -47,7 +47,7 @@ const MainNavbar = () => {
   return (
     <Container maxWidth="xl">
       <AppBar
-        position="static"
+        position="fixed"
         display="flex"
         sx={{
           background: "#ffffff",
@@ -57,7 +57,7 @@ const MainNavbar = () => {
       >
         <Toolbar>
           <Link to="/">
-            <img src="logo.png" alt="logo" style={{ width: 175, height: 90 }} />
+            <img src="logo.png" alt="logo" style={{ width: 175, height: 80 }} />
           </Link>
 
           <MainMenu pages={pages} />

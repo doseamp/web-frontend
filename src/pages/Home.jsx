@@ -1,13 +1,15 @@
-import { Container } from "@mui/material";
+import { Box } from "@mui/material";
 import ContactUs from "../components/ContactUs";
+import Guide from "../components/Guide";
 import Showcase from "../components/Showcase";
 
 const Home = () => {
   return (
-    <Container maxWidth="xl">
+    <Box>
       <Showcase />
+      <Guide />
       <ContactUs />
-    </Container>
+    </Box>
   );
 };
 
