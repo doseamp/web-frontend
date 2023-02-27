@@ -8,7 +8,7 @@ const RootLayout = () => {
     <div>
       {/* <Navbar /> */}
       <MainNavbar />
-      <main>
+      <main style={{ marginTop: "96px" }}>
         <Outlet />
       </main>
       <Footer />
