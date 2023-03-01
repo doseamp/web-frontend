@@ -34,6 +34,7 @@ const Guide = () => {
                 alt="Nigeria"
                 style={{ width: "30px", height: "30px" }}
               />
+
               <Box sx={{ pl: 4 }}>
                 <Typography
                   className="headingStyle"
@@ -53,9 +54,9 @@ const Guide = () => {
               sx={{ alignItems: "center", py: 2 }}
             >
               <img
-                src="nigeria.png"
-                alt="Nigeria"
-                style={{ width: "30px", height: "30px" }}
+                src="wallets.svg"
+                alt="Wallets Icon"
+                style={{ width: "50px", height: "50px" }}
               />
               <Box sx={{ pl: 4 }}>
                 <Typography
@@ -75,9 +76,9 @@ const Guide = () => {
               sx={{ alignItems: "center", py: 2 }}
             >
               <img
-                src="nigeria.png"
-                alt="Nigeria"
-                style={{ width: "30px", height: "30px" }}
+                src="transacting.svg"
+                alt="Transacting Icon"
+                style={{ width: "50px", height: "50px" }}
               />
               <Box sx={{ pl: 4 }}>
                 <Typography
@@ -118,7 +119,23 @@ const Guide = () => {
               </Button>
             </Link>
           </Grid>
-          <Grid item xs={12} md={4} sx={{ py: 2 }}></Grid>
+          <Grid
+            item
+            xs={12}
+            md={4}
+            sx={{
+              py: 2,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <img
+              src="transaction.png"
+              alt="Transaction"
+              style={{ width: "306px", height: "300px" }}
+            />
+          </Grid>
         </Grid>
       </Container>
     </Box>

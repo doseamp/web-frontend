@@ -1,7 +1,23 @@
 import { Link } from "react-router-dom";
-import { Button, Box, Grid, Typography, Container } from "@mui/material";
+import {
+  Button,
+  Box,
+  Grid,
+  Typography,
+  Container,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 
 const Showcase = () => {
+  const theme = useTheme();
+  console.log(theme);
+  const md = useMediaQuery(theme.breakpoints.down("md"));
+  const lg = useMediaQuery(theme.breakpoints.down("lg"));
+  const sm = useMediaQuery(theme.breakpoints.down("sm"));
+
+  console.log(md);
+
   return (
     <Box
       sx={{
@@ -13,7 +29,7 @@ const Showcase = () => {
       }}
     >
       <Container maxWidth="xl">
-        <Grid container spacing={2} alignItems="center">
+        <Grid container alignItems="center" justifyContent="space-between">
           <Grid item xs={12} md={6}>
             <Typography
               className="headingStyle"
@@ -51,6 +67,32 @@ const Showcase = () => {
                 Start now
               </Button>
             </Link>
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            md={5}
+            sx={{
+              py: 2,
+              mt: 1,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            {md ? (
+              <img
+                src="showcase.png"
+                alt="Showcase"
+                style={{ width: "350px", height: "230px" }}
+              />
+            ) : (
+              <img
+                src="showcase.png"
+                alt="Showcase"
+                style={{ width: "450px", height: "300px" }}
+              />
+            )}
           </Grid>
         </Grid>
       </Container>

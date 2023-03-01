@@ -1,4 +1,4 @@
-import { Box, Grid, Typography, Button, Container } from "@mui/material";
+import { Box, Grid, Typography, Container } from "@mui/material";
 
 const Info = () => {
   return (
@@ -36,7 +36,7 @@ const Info = () => {
               }}
             >
               <img
-                src="nigeria.png"
+                src="accountability.svg"
                 alt="Nigeria"
                 style={{ width: "30px", height: "30px" }}
               />
@@ -55,9 +55,9 @@ const Info = () => {
               }}
             >
               <img
-                src="nigeria.png"
-                alt="Nigeria"
-                style={{ width: "30px", height: "30px" }}
+                src="accountability.svg"
+                alt="Accountability Icon"
+                style={{ width: "50px", height: "50px" }}
               />
               <Typography sx={{ fontSize: "16px", fontWeight: "bold", mt: 2 }}>
                 For Accountability
@@ -74,9 +74,9 @@ const Info = () => {
               }}
             >
               <img
-                src="nigeria.png"
-                alt="Nigeria"
-                style={{ width: "30px", height: "30px" }}
+                src="transaction.svg"
+                alt="Transaction Icon"
+                style={{ width: "50px", height: "50px" }}
               />
               <Typography sx={{ fontSize: "16px", fontWeight: "bold", mt: 2 }}>
                 Easy Transactions
