@@ -15,7 +15,7 @@ const ContactUs = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [businessType, setBusinessType] = useState("");
   const [message, setMessage] = useState("");
-  const [loading, setLoading] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = (
     fullName,
@@ -24,6 +24,7 @@ const ContactUs = () => {
     businessType,
     message
   ) => {
+    setLoading(true);
     console.log({
       fullName,
       email,

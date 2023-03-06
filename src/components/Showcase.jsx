@@ -13,10 +13,6 @@ const Showcase = () => {
   const theme = useTheme();
   console.log(theme);
   const md = useMediaQuery(theme.breakpoints.down("md"));
-  const lg = useMediaQuery(theme.breakpoints.down("lg"));
-  const sm = useMediaQuery(theme.breakpoints.down("sm"));
-
-  console.log(md);
 
   return (
     <Box
