@@ -12,7 +12,7 @@ body {
 }
 
 main {
-  padding: 40px 0;
+  box-sizing: border-box;
 }
 
 .headingStyle {
@@ -21,4 +21,28 @@ main {
 
 .buttonStyle {
   font-family: "Ubuntu", sans-serif;
+}
+
+.signupParent::before {
+  content: "";
+  background-image: url("../public/signup-bg.png");
+  opacity: 0.3;
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+}
+
+.loginParent::before {
+  content: "";
+  background-image: url("../public/login-bg.png");
+  opacity: 0.3;
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
 }

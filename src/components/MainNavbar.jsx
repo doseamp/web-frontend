@@ -47,12 +47,12 @@ const MainNavbar = () => {
   return (
     <Container maxWidth="xl">
       <AppBar
-        position="fixed"
         display="flex"
         sx={{
           background: "#ffffff",
           boxShadow: "none",
           justifyContent: "center",
+          position: "static",
         }}
       >
         <Toolbar>
