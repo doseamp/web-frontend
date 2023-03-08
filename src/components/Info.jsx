@@ -36,9 +36,9 @@ const Info = () => {
               }}
             >
               <img
-                src="accountability.svg"
+                src="image2.svg"
                 alt="Nigeria"
-                style={{ width: "30px", height: "30px" }}
+                style={{ width: "50px", height: "50px" }}
               />
               <Typography sx={{ fontSize: "16px", fontWeight: "bold", mt: 2 }}>
                 To Curb Corruption

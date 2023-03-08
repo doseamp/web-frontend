@@ -30,9 +30,9 @@ const Guide = () => {
               sx={{ alignItems: "center", py: 2 }}
             >
               <img
-                src="nigeria.png"
+                src="account.svg"
                 alt="Nigeria"
-                style={{ width: "30px", height: "30px" }}
+                style={{ width: "50px", height: "50px" }}
               />
 
               <Box sx={{ pl: 4 }}>
