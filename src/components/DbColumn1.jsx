@@ -17,7 +17,9 @@ const DbColumn1 = () => {
   return (
     <Box justifyContent="center">
       <Box>
-        <Card sx={{ mb: 10 }}>
+        {/* Wallet 1  */}
+
+        <Card sx={{ mb: 5 }}>
           <CardContent>
             <Box sx={{ position: "relative", height: "100px" }}>
               <Box display="flex" flexDirection="row">
@@ -53,7 +55,9 @@ const DbColumn1 = () => {
             </Box>
           </CardContent>
         </Card>
-        <Card sx={{ mb: 10 }}>
+        <Card sx={{ mb: 5 }}>
+          {/* Balance Details  */}
+
           <CardContent>
             <Typography sx={{ fontWeight: "bold", mb: 2 }}>
               Balance Details
@@ -105,6 +109,8 @@ const DbColumn1 = () => {
             </Box>
           </CardContent>
         </Card>
+
+        {/* Exchange  */}
         <Card>
           <CardContent>
             <Box display="flex" sx={{ mb: 2 }}>
