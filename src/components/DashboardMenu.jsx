@@ -13,6 +13,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import SettingsIcon from "@mui/icons-material/Settings";
 import LogoutIcon from "@mui/icons-material/Logout";
+import MenuIcon from "@mui/icons-material/Menu";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -51,18 +52,28 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const DashboardMenu = () => {
+const DashboardMenu = ({ openDrawer, setOpenDrawer }) => {
   return (
     <AppBar
       className="headingStyle"
       sx={{
-        width: "calc(100% - 250px)",
+        width: {
+          xs: "100%",
+          md: "calc(100% - 250px)",
+        },
         background: "inherit",
         boxShadow: "none",
         color: "#000000",
       }}
     >
       <Toolbar sx={{ display: "flex" }}>
+        <IconButton
+          onClick={() => setOpenDrawer(!openDrawer)}
+          size="large"
+          sx={{ display: { xs: "inline", md: "none" } }}
+        >
+          <MenuIcon />
+        </IconButton>
         <Typography
           variant="h6"
           sx={{

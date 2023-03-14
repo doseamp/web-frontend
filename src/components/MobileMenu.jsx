@@ -7,12 +7,12 @@ import {
   ListItemButton,
   ListItemText,
   Stack,
+  Box,
 } from "@mui/material";
 import { Link } from "react-router-dom";
 
 import MenuIcon from "@mui/icons-material/Menu";
 import { useState } from "react";
-import { Box } from "@mui/material";
 
 const MobileMenu = ({ pages }) => {
   const [openDrawer, setOpenDrawer] = useState(false);
