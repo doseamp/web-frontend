@@ -8,7 +8,6 @@ import {
   ListItemText,
   Toolbar,
 } from "@mui/material";
-import { Link } from "react-router-dom";
 
 const Sidebar = ({ pages, utils }) => {
   return (
