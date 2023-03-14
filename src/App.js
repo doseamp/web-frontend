@@ -11,6 +11,12 @@ import RootLayout from "./layouts/RootLayout";
 import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
+import Transactions from "./pages/Transactions";
+import Wallets from "./pages/Wallets";
+import MyCards from "./pages/MyCards";
+import Help from "./pages/Help";
+import New from "./pages/New";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -18,6 +24,12 @@ const router = createBrowserRouter(
       <Route index element={<Home />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/transactions" element={<Transactions />} />
+      <Route path="/wallets" element={<Wallets />} />
+      <Route path="/cards" element={<MyCards />} />
+      <Route path="/help" element={<Help />} />
+      <Route path="/new" element={<New />} />
     </Route>
   )
 );

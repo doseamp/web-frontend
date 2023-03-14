@@ -19,7 +19,7 @@ import AppleIcon from "@mui/icons-material/Apple";
 import { UtilsContext } from "../contexts/UtilsContext";
 import { login } from "../utils/AuthFn";
 import { googleLogin } from "../utils/AuthFn";
-import MainNavbar from "../components/MainNavbar";
+import Navbar from "../components/Navbar";
 
 const Login = () => {
   const [email, setEmail] = useState();
@@ -59,7 +59,7 @@ const Login = () => {
 
   return (
     <Box>
-      <MainNavbar />
+      <Navbar />
       {md ? (
         <Box
           className="loginParent"

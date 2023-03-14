@@ -21,7 +21,7 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { UtilsContext } from "../contexts/UtilsContext";
 import { signup } from "../utils/AuthFn";
 import { countries } from "../utils/Countries";
-import MainNavbar from "../components/MainNavbar";
+import Navbar from "../components/Navbar";
 
 const Signup = () => {
   const [firstName, setFirstName] = useState();
@@ -132,7 +132,7 @@ const Signup = () => {
 
   return (
     <Box>
-      <MainNavbar />
+      <Navbar />
       {md ? (
         <Box
           className="signupParent"

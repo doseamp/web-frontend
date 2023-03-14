@@ -4,12 +4,12 @@ import Guide from "../components/Guide";
 import Info from "../components/Info";
 import Showcase from "../components/Showcase";
 import Footer from "../components/Footer";
-import MainNavbar from "../components/MainNavbar";
+import Navbar from "../components/Navbar";
 
 const Home = () => {
   return (
     <Box>
-      <MainNavbar />
+      <Navbar />
       <Showcase />
       <Guide />
       <Info />

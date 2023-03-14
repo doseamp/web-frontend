@@ -8,67 +8,24 @@ import {
   ListItemText,
   Toolbar,
 } from "@mui/material";
+import { Link } from "react-router-dom";
 
-import DashboardCustomizeIcon from "@mui/icons-material/DashboardCustomize";
-import PaymentsIcon from "@mui/icons-material/Payments";
-import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
-import CreditCardIcon from "@mui/icons-material/CreditCard";
-import ContactSupportIcon from "@mui/icons-material/ContactSupport";
-import ToggleOnIcon from "@mui/icons-material/ToggleOn";
-import SettingsIcon from "@mui/icons-material/Settings";
-import LogoutIcon from "@mui/icons-material/Logout";
-
-const pages = [
-  {
-    name: "Dashboard",
-    icon: <DashboardCustomizeIcon />,
-    link: "/dashboard",
-  },
-  {
-    name: "Transaction",
-    icon: <PaymentsIcon />,
-    link: "/transactions",
-  },
-  {
-    name: "Wallet",
-    icon: <AccountBalanceWalletIcon />,
-    link: "/wallet",
-  },
-  {
-    name: "My Cards",
-    icon: <CreditCardIcon />,
-    link: "/cards",
-  },
-  {
-    name: "Help",
-    icon: <ContactSupportIcon />,
-    link: "/help",
-  },
-];
-
-const utils = [
-  {
-    name: "Light mode",
-    icon: <ToggleOnIcon />,
-  },
-  {
-    name: "Setting",
-    icon: <SettingsIcon />,
-  },
-  {
-    name: "Log out",
-    icon: <LogoutIcon />,
-  },
-];
-
-const Sidebar = () => {
+const Sidebar = ({ pages, utils }) => {
   return (
-    <Box component="nav">
+    <Box
+      component="nav"
+      sx={{
+        display: {
+          xs: "none",
+          md: "block",
+        },
+      }}
+    >
       <Drawer
         variant="permanent"
         PaperProps={{
           style: {
-            width: "19%",
+            width: "250px",
             borderTopRightRadius: "48px",
             borderBottomRightRadius: "48px",
           },
@@ -82,7 +39,7 @@ const Sidebar = () => {
           <List>
             {pages.map((page) => (
               <ListItem key={page.name} sx={{ py: 0 }}>
-                <ListItemButton>
+                <ListItemButton LinkComponent="a" to={page.link}>
                   <ListItemIcon>{page.icon}</ListItemIcon>
                   <ListItemText>{page.name}</ListItemText>
                 </ListItemButton>

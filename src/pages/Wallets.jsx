@@ -1,4 +1,4 @@
-import { Box, Grid, Toolbar } from "@mui/material";
+import { Box, Toolbar } from "@mui/material";
 import { useState } from "react";
 
 import DashboardCustomizeIcon from "@mui/icons-material/DashboardCustomize";
@@ -9,11 +9,7 @@ import ContactSupportIcon from "@mui/icons-material/ContactSupport";
 import ToggleOffOutlinedIcon from "@mui/icons-material/ToggleOffOutlined";
 import SettingsIcon from "@mui/icons-material/Settings";
 import LogoutIcon from "@mui/icons-material/Logout";
-import DbGrid1 from "../components/DbGrid1";
 import DashboardMenu from "../components/DashboardMenu";
-import DbCardsComp from "../components/DbCardsComp";
-import DbGrid2 from "../components/DbGrid2";
-import DbGrid3 from "../components/DbGrid3";
 import Sidebar from "../components/Sidebar";
 import MobileSidebar from "../components/MobileSidebar";
 
@@ -60,7 +56,7 @@ const utils = [
   },
 ];
 
-const Dashboard = () => {
+const Wallets = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
 
   return (
@@ -83,25 +79,10 @@ const Dashboard = () => {
       >
         <Toolbar />
 
-        <Box sx={{ px: 4, py: 2, mt: 4 }}>
-          <DbCardsComp />
-          <Grid container justifyContent="space-between" sx={{ mt: 8 }}>
-            <Grid item lg={2.8} md={5.6} xs={11}>
-              <Box>
-                <DbGrid1 />
-              </Box>
-            </Grid>
-            <Grid item lg={5.6} md={5.6} xs={11}>
-              <DbGrid2 />
-            </Grid>
-            <Grid item lg={2.8} md={5.6} xs={11}>
-              <DbGrid3 />
-            </Grid>
-          </Grid>
-        </Box>
+        <Box sx={{ px: 4, py: 2, mt: 4 }}> Wallets</Box>
       </Box>
     </Box>
   );
 };
 
-export default Dashboard;
+export default Wallets;
