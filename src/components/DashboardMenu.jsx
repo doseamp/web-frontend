@@ -61,7 +61,7 @@ const DashboardMenu = ({ openDrawer, setOpenDrawer }) => {
           xs: "100%",
           md: "calc(100% - 250px)",
         },
-        background: "inherit",
+        background: "#ffffff",
         boxShadow: "none",
         color: "#000000",
       }}

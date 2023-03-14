@@ -11,9 +11,9 @@ const DonutChart = () => {
     datasets: [
       {
         label: "Amount",
-        data: [200, 300, 500],
-        backgroundColor: ["red", "blue", "black"],
-        borderColor: ["red", "blue", "black"],
+        data: [169.99, 123.67, 3942.54],
+        backgroundColor: ["#FF9800", "#54ADF3", "#817E7E"],
+        borderColor: ["#FF9800", "#54ADF3", "#817E7E"],
       },
     ],
   };
@@ -25,9 +25,38 @@ const DonutChart = () => {
     },
   };
 
+  const plugins = [
+    {
+      beforeDraw: function (chart) {
+        var width = chart.width,
+          height = chart.height,
+          ctx = chart.ctx;
+        ctx.restore();
+        var fontSize = (height / 160).toFixed(2);
+        ctx.font = fontSize + "em sans-serif";
+        ctx.textBaseline = "top";
+        var text = "Total",
+          textX = Math.round((width - ctx.measureText(text).width) / 2),
+          textY = height / 2.5;
+        ctx.fillText(text, textX, textY);
+        var text2 = "$5000",
+          text2X = Math.round((width - ctx.measureText(text2).width) / 2),
+          text2Y = height / 2;
+        ctx.fillText(text, textX, textY);
+        ctx.fillText(text2, text2X, text2Y);
+        ctx.save();
+      },
+    },
+  ];
+
   return (
-    <Box sx={{ width: "50%" }}>
-      <Doughnut data={data} options={options} style={{ marginLeft: "auto" }} />
+    <Box sx={{ width: "100px" }}>
+      <Doughnut
+        data={data}
+        options={options}
+        plugins={plugins}
+        style={{ marginLeft: "auto" }}
+      />
     </Box>
   );
 };

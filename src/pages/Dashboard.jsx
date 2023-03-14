@@ -16,6 +16,7 @@ import DbGrid2 from "../components/DbGrid2";
 import DbGrid3 from "../components/DbGrid3";
 import Sidebar from "../components/Sidebar";
 import MobileSidebar from "../components/MobileSidebar";
+import DbColumn1 from "../components/DbColumn1";
 
 const pages = [
   {
@@ -64,7 +65,7 @@ const Dashboard = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
 
   return (
-    <Box sx={{ background: "#D9D9D9" }}>
+    <Box sx={{ background: "#0000000" }}>
       <DashboardMenu openDrawer={openDrawer} setOpenDrawer={setOpenDrawer} />
       <Sidebar pages={pages} utils={utils} />
       <MobileSidebar
@@ -84,18 +85,22 @@ const Dashboard = () => {
         <Toolbar />
 
         <Box sx={{ px: 4, py: 2, mt: 4 }}>
-          <DbCardsComp />
-          <Grid container justifyContent="space-between" sx={{ mt: 8 }}>
+          <Grid
+            container
+            justifyContent="space-between"
+            alignItems="center"
+            sx={{ mt: 8 }}
+          >
             <Grid item lg={2.8} md={5.6} xs={11}>
               <Box>
-                <DbGrid1 />
+                <DbColumn1 />
               </Box>
             </Grid>
             <Grid item lg={5.6} md={5.6} xs={11}>
-              <DbGrid2 />
+              Grid 2
             </Grid>
             <Grid item lg={2.8} md={5.6} xs={11}>
-              <DbGrid3 />
+              Grid 3
             </Grid>
           </Grid>
         </Box>
