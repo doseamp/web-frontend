@@ -50,7 +50,14 @@ const DonutChart = () => {
   ];
 
   return (
-    <Box sx={{ width: "100px" }}>
+    <Box
+      sx={{
+        width: {
+          xs: "50%",
+          md: "100px",
+        },
+      }}
+    >
       <Doughnut
         data={data}
         options={options}

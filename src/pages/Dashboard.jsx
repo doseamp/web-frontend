@@ -14,6 +14,9 @@ import Sidebar from "../components/Sidebar";
 import MobileSidebar from "../components/MobileSidebar";
 import DbColumn1 from "../components/DbColumn1";
 import DbColumn2 from "../components/DbColumn2";
+import DbColumn3 from "../components/DbColumn3";
+import MobileDashboard from "../components/MobileDashboard";
+import MobileDashboardMenu from "../components/MobileDashboardMenu";
 
 const pages = [
   {
@@ -81,8 +84,22 @@ const Dashboard = () => {
       >
         <Toolbar />
 
-        <Box sx={{ px: 4, py: 2, mt: 4 }}>
-          <Grid container justifyContent="space-between" sx={{ mt: 8 }}>
+        <Box
+          sx={{
+            px: 4,
+            display: {
+              xs: "none",
+              md: "block",
+            },
+          }}
+        >
+          <Grid
+            container
+            justifyContent="space-between"
+            sx={{
+              mt: 8,
+            }}
+          >
             <Grid item lg={2.8} md={5.6} xs={11}>
               <Box>
                 <DbColumn1 />
@@ -92,9 +109,26 @@ const Dashboard = () => {
               <DbColumn2 />
             </Grid>
             <Grid item lg={2.8} md={5.6} xs={11}>
-              Grid 3
+              <DbColumn3 />
             </Grid>
           </Grid>
+        </Box>
+
+        <Box
+          sx={{
+            px: 4,
+            mt: 10,
+            display: {
+              xs: "block",
+              md: "none",
+            },
+          }}
+        >
+          <Box>
+            <MobileDashboard />
+            <Toolbar />
+            <MobileDashboardMenu />
+          </Box>
         </Box>
       </Box>
     </Box>
