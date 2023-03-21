@@ -4,7 +4,6 @@ import { useState } from "react";
 import DashboardCustomizeIcon from "@mui/icons-material/DashboardCustomize";
 import PaymentsIcon from "@mui/icons-material/Payments";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
-import CreditCardIcon from "@mui/icons-material/CreditCard";
 import ContactSupportIcon from "@mui/icons-material/ContactSupport";
 import ToggleOffOutlinedIcon from "@mui/icons-material/ToggleOffOutlined";
 import SettingsIcon from "@mui/icons-material/Settings";
@@ -33,11 +32,6 @@ const pages = [
     name: "Wallet",
     icon: <AccountBalanceWalletIcon />,
     link: "/wallets",
-  },
-  {
-    name: "My Cards",
-    icon: <CreditCardIcon />,
-    link: "/cards",
   },
   {
     name: "Help",
@@ -117,7 +111,7 @@ const Dashboard = () => {
         <Box
           sx={{
             px: 4,
-            mt: 10,
+            mt: 2,
             display: {
               xs: "block",
               md: "none",

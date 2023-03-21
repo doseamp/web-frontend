@@ -17,47 +17,9 @@ const DbColumn1 = () => {
   return (
     <Box justifyContent="center">
       <Box>
-        {/* Wallet 1  */}
+        {/* Balance Details  */}
 
         <Card sx={{ mb: 5 }}>
-          <CardContent>
-            <Box sx={{ position: "relative", height: "100px" }}>
-              <Box display="flex" flexDirection="row">
-                <Box display="flex" justifyContent="center">
-                  <Icon sx={{ mr: 1, color: "#FF9800" }}>
-                    <AccountBalanceWalletIcon />
-                  </Icon>
-                  <Typography variant="body2" sx={{ fontWeight: "bold" }}>
-                    Wallet 1
-                  </Typography>
-                </Box>
-                <Box sx={{ ml: "auto" }}>
-                  <Typography variant="body2" sx={{ fontWeight: "bold" }}>
-                    Bitcoin
-                  </Typography>
-                  <Typography sx={{ fontSize: "0.7rem" }}>BTC</Typography>
-                </Box>
-              </Box>
-              <Box
-                sx={{
-                  position: "absolute",
-                  bottom: 0,
-                  right: 0,
-                  left: 0,
-                  textAlign: "center",
-                }}
-              >
-                <Typography variant="body2" sx={{ fontWeight: "bold" }}>
-                  Total
-                </Typography>
-                <Typography sx={{ fontSize: "0.7rem" }}>$169.99</Typography>
-              </Box>
-            </Box>
-          </CardContent>
-        </Card>
-        <Card sx={{ mb: 5 }}>
-          {/* Balance Details  */}
-
           <CardContent>
             <Typography sx={{ fontWeight: "bold", mb: 2 }}>
               Balance Details
