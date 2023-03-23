@@ -8,8 +8,12 @@ import {
   ListItemText,
   Toolbar,
 } from "@mui/material";
+import { useLocation } from "react-router-dom";
 
 const Sidebar = ({ pages, utils }) => {
+  const location = useLocation();
+  const active = location.pathname;
+
   return (
     <Box
       component="nav"
@@ -38,10 +42,23 @@ const Sidebar = ({ pages, utils }) => {
           <List>
             {pages.map((page) => (
               <ListItem key={page.name} sx={{ py: 0 }}>
-                <ListItemButton LinkComponent="a" to={page.link}>
-                  <ListItemIcon>{page.icon}</ListItemIcon>
-                  <ListItemText>{page.name}</ListItemText>
-                </ListItemButton>
+                {page.link === active ? (
+                  <ListItemButton
+                    LinkComponent="a"
+                    to={page.link}
+                    sx={{ background: "#54ADF3", color: "#ffffff" }}
+                  >
+                    <ListItemIcon sx={{ color: "#ffffff" }}>
+                      {page.icon}
+                    </ListItemIcon>
+                    <ListItemText>{page.name}</ListItemText>
+                  </ListItemButton>
+                ) : (
+                  <ListItemButton LinkComponent="a" to={page.link}>
+                    <ListItemIcon>{page.icon}</ListItemIcon>
+                    <ListItemText>{page.name}</ListItemText>
+                  </ListItemButton>
+                )}
               </ListItem>
             ))}
           </List>

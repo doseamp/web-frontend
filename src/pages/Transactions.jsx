@@ -11,7 +11,7 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import DashboardMenu from "../components/DashboardMenu";
 import Sidebar from "../components/Sidebar";
 import MobileSidebar from "../components/MobileSidebar";
-
+import MobileDashboardMenu from "../components/MobileDashboardMenu";
 const pages = [
   {
     name: "Dashboard",
@@ -50,6 +50,29 @@ const utils = [
   },
 ];
 
+const mobilePages = [
+  {
+    name: "Dashboard",
+    icon: <DashboardCustomizeIcon />,
+    link: "/dashboard",
+  },
+  {
+    name: "Transaction",
+    icon: <PaymentsIcon />,
+    link: "/transactions",
+  },
+  {
+    name: "Wallet",
+    icon: <AccountBalanceWalletIcon />,
+    link: "/wallets",
+  },
+  {
+    name: "Setting",
+    icon: <SettingsIcon />,
+    to: "",
+  },
+];
+
 const Transactions = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
 
@@ -74,6 +97,23 @@ const Transactions = () => {
         <Toolbar />
 
         <Box sx={{ px: 4, py: 2, mt: 4 }}> Transactions</Box>
+      </Box>
+
+      {/* Nav Menu  */}
+      <Box
+        sx={{
+          px: 4,
+          mt: 2,
+          display: {
+            xs: "block",
+            md: "none",
+          },
+        }}
+      >
+        <Box>
+          <Toolbar />
+          <MobileDashboardMenu pages={mobilePages} />
+        </Box>
       </Box>
     </Box>
   );

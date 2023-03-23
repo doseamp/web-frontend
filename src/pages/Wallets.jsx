@@ -63,6 +63,29 @@ const utils = [
   },
 ];
 
+const mobilePages = [
+  {
+    name: "Dashboard",
+    icon: <DashboardCustomizeIcon />,
+    link: "/dashboard",
+  },
+  {
+    name: "Transaction",
+    icon: <PaymentsIcon />,
+    link: "/transactions",
+  },
+  {
+    name: "Wallet",
+    icon: <AccountBalanceWalletIcon />,
+    link: "/wallets",
+  },
+  {
+    name: "Setting",
+    icon: <SettingsIcon />,
+    to: "",
+  },
+];
+
 const Wallets = () => {
   return (
     <Box>
@@ -527,7 +550,7 @@ const Wallets = () => {
         >
           <Box>
             <Toolbar />
-            <MobileDashboardMenu />
+            <MobileDashboardMenu pages={mobilePages} />
           </Box>
         </Box>
       </Box>

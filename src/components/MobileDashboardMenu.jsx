@@ -1,63 +1,65 @@
-import { AppBar, Box, IconButton, Stack, Typography } from "@mui/material";
-import DashboardCustomizeIcon from "@mui/icons-material/DashboardCustomize";
-import PaymentsIcon from "@mui/icons-material/Payments";
-import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
-import SettingsIcon from "@mui/icons-material/Settings";
+import {
+  AppBar,
+  Box,
+  IconButton,
+  Stack,
+  Typography,
+  Link,
+} from "@mui/material";
+import { useLocation } from "react-router-dom";
 
-const MobileDashboardMenu = () => {
+const MobileDashboardMenu = ({ pages }) => {
+  const location = useLocation();
+  const active = location.pathname;
+
   return (
-    <AppBar position="fixed" sx={{ top: "auto", bottom: 0, px: 4, pb: 1 }}>
+    <AppBar
+      position="fixed"
+      sx={{ top: "auto", bottom: 0, px: 4, pb: 1, background: "#54ADF3" }}
+    >
       <Stack direction="row" justifyContent="space-between">
-        <Box
-          display="flex"
-          flexDirection="column"
-          justifyContent="center"
-          alignItems="center"
-        >
-          <IconButton size="large">
-            <DashboardCustomizeIcon sx={{ color: "#ffffff" }} />
-          </IconButton>
-          <Typography sx={{ fontSize: "0.5rem" }}>Dashboard</Typography>
-        </Box>
-        <Box
-          display="flex"
-          flexDirection="column"
-          justifyContent="center"
-          alignItems="center"
-        >
-          <IconButton size="large">
-            <PaymentsIcon />
-          </IconButton>
-          <Typography sx={{ fontSize: "0.5rem", color: "#000000" }}>
-            Transaction
-          </Typography>
-        </Box>
-        <Box
-          display="flex"
-          flexDirection="column"
-          justifyContent="center"
-          alignItems="center"
-        >
-          <IconButton size="large">
-            <AccountBalanceWalletIcon />
-          </IconButton>
-          <Typography sx={{ fontSize: "0.5rem", color: "#000000" }}>
-            Wallet
-          </Typography>
-        </Box>
-        <Box
-          display="flex"
-          flexDirection="column"
-          justifyContent="center"
-          alignItems="center"
-        >
-          <IconButton size="large">
-            <SettingsIcon />
-          </IconButton>
-          <Typography sx={{ fontSize: "0.5rem", color: "#000000" }}>
-            Settings
-          </Typography>
-        </Box>
+        {pages.map((page) => (
+          <Link
+            href={page.link}
+            key={page.name}
+            sx={{ textDecoration: "none" }}
+          >
+            {page.link === active ? (
+              <Box
+                display="flex"
+                flexDirection="column"
+                justifyContent="center"
+                alignItems="center"
+              >
+                <IconButton size="large" sx={{ color: "#ffffff" }}>
+                  {page.icon}
+                </IconButton>
+                <Typography
+                  sx={{
+                    fontSize: "0.5rem",
+                    color: "#ffffff",
+                    textAlign: "center",
+                  }}
+                >
+                  {page.name}
+                </Typography>
+              </Box>
+            ) : (
+              <Box href={page.link}>
+                <IconButton size="large">{page.icon}</IconButton>
+                <Typography
+                  sx={{
+                    fontSize: "0.5rem",
+                    color: "#000000",
+                    textAlign: "center",
+                  }}
+                >
+                  {page.name}
+                </Typography>
+              </Box>
+            )}
+          </Link>
+        ))}
       </Stack>
     </AppBar>
   );
