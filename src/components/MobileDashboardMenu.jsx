@@ -2,7 +2,6 @@ import { AppBar, Box, IconButton, Stack, Typography } from "@mui/material";
 import DashboardCustomizeIcon from "@mui/icons-material/DashboardCustomize";
 import PaymentsIcon from "@mui/icons-material/Payments";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
-import CreditCardIcon from "@mui/icons-material/CreditCard";
 import SettingsIcon from "@mui/icons-material/Settings";
 
 const MobileDashboardMenu = () => {
@@ -44,19 +43,6 @@ const MobileDashboardMenu = () => {
           </IconButton>
           <Typography sx={{ fontSize: "0.5rem", color: "#000000" }}>
             Wallet
-          </Typography>
-        </Box>
-        <Box
-          display="flex"
-          flexDirection="column"
-          justifyContent="center"
-          alignItems="center"
-        >
-          <IconButton size="large">
-            <CreditCardIcon />
-          </IconButton>
-          <Typography sx={{ fontSize: "0.5rem", color: "#000000" }}>
-            My Cards
           </Typography>
         </Box>
         <Box
