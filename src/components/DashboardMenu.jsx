@@ -11,7 +11,7 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import SettingsIcon from "@mui/icons-material/Settings";
 import LogoutIcon from "@mui/icons-material/Logout";
 
-const DashboardMenu = ({ openDrawer, setOpenDrawer }) => {
+const DashboardMenu = () => {
   return (
     <AppBar
       className="headingStyle"

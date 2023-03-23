@@ -14,7 +14,7 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Transactions from "./pages/Transactions";
 import Wallets from "./pages/Wallets";
-import MyCards from "./pages/MyCards";
+import WalletDetails from "./pages/WalletDetails";
 import Help from "./pages/Help";
 import New from "./pages/New";
 
@@ -27,7 +27,7 @@ const router = createBrowserRouter(
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/transactions" element={<Transactions />} />
       <Route path="/wallets" element={<Wallets />} />
-      <Route path="/cards" element={<MyCards />} />
+      <Route path="/wallets/:id" element={<WalletDetails />} />
       <Route path="/help" element={<Help />} />
       <Route path="/new" element={<New />} />
     </Route>
