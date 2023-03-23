@@ -36,8 +36,8 @@ const Info = () => {
               }}
             >
               <img
-                src="image2.svg"
-                alt="Nigeria"
+                src="dollar.svg"
+                alt="Dollar sign"
                 style={{ width: "50px", height: "50px" }}
               />
               <Typography sx={{ fontSize: "16px", fontWeight: "bold", mt: 2 }}>

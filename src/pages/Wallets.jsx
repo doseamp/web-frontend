@@ -9,6 +9,7 @@ import {
   IconButton,
   Divider,
   Button,
+  Link,
 } from "@mui/material";
 
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
@@ -56,137 +57,156 @@ const Wallets = () => {
               }}
             >
               <CardContent>
-                <Box display="flex">
-                  <Box display="flex">
-                    <Icon>
-                      <AccountBalanceWalletIcon sx={{ color: "green" }} />
-                    </Icon>
-                    <Stack direction="column" sx={{ ml: 1 }}>
-                      <Typography variant="body2" sx={{ fontWeight: "bold" }}>
-                        Wallet 1
-                      </Typography>
-                      <Typography
-                        sx={{ fontSize: "0.7rem", fontWeight: "bold" }}
-                      >
-                        BTC
-                      </Typography>
-                    </Stack>
-                  </Box>
-                  <Box sx={{ ml: "auto" }}>
-                    <Typography sx={{ fontWeight: "bold" }}>$169.99</Typography>
-                  </Box>
-                </Box>
-                <Box
-                  display="flex"
-                  sx={{
-                    background: "#d9d9d9",
-                    borderRadius: 1,
-                    px: 1,
-                    py: 0.5,
-                    mt: 7,
-                  }}
+                <Link
+                  href="/wallets/1"
+                  sx={{ textDecoration: "none", color: "#000000" }}
                 >
-                  <Typography variant="body2" sx={{ fontWeight: "bold" }}>
-                    124D5q765EC7ab214Dot
-                  </Typography>
-                  <IconButton size="small" sx={{ ml: "auto" }}>
-                    <ContentCopyIcon sx={{ fontSize: "12px" }} />
-                  </IconButton>
-                </Box>
-              </CardContent>
-            </Card>
-            <Card
-              sx={{
-                boxShadow:
-                  "0px 2px 1px -1px red, 0px 1px 1px 0px red, 0px 1px 3px 0px red",
-              }}
-            >
-              <CardContent>
-                <Box display="flex">
                   <Box display="flex">
-                    <Icon>
-                      <AccountBalanceWalletIcon sx={{ color: "red" }} />
-                    </Icon>
-                    <Stack direction="column" sx={{ ml: 1 }}>
-                      <Typography variant="body2" sx={{ fontWeight: "bold" }}>
-                        Wallet 2
+                    <Box display="flex">
+                      <Icon>
+                        <AccountBalanceWalletIcon sx={{ color: "green" }} />
+                      </Icon>
+                      <Stack direction="column" sx={{ ml: 1 }}>
+                        <Typography variant="body2" sx={{ fontWeight: "bold" }}>
+                          Wallet 1
+                        </Typography>
+                        <Typography
+                          sx={{ fontSize: "0.7rem", fontWeight: "bold" }}
+                        >
+                          BTC
+                        </Typography>
+                      </Stack>
+                    </Box>
+                    <Box sx={{ ml: "auto" }}>
+                      <Typography sx={{ fontWeight: "bold" }}>
+                        $169.99
                       </Typography>
-                      <Typography
-                        sx={{ fontSize: "0.7rem", fontWeight: "bold" }}
-                      >
-                        ETHER
-                      </Typography>
-                    </Stack>
+                    </Box>
                   </Box>
-                  <Box sx={{ ml: "auto" }}>
-                    <Typography sx={{ fontWeight: "bold" }}>$123.67</Typography>
-                  </Box>
-                </Box>
-                <Box
-                  display="flex"
-                  sx={{
-                    background: "#d9d9d9",
-                    borderRadius: 1,
-                    px: 1,
-                    py: 0.5,
-                    mt: 7,
-                  }}
-                >
-                  <Typography variant="body2" sx={{ fontWeight: "bold" }}>
-                    124D5q765EC7ab214Dot
-                  </Typography>
-                  <IconButton size="small" sx={{ ml: "auto" }}>
-                    <ContentCopyIcon sx={{ fontSize: "12px" }} />
-                  </IconButton>
-                </Box>
-              </CardContent>
-            </Card>
-            <Card
-              sx={{
-                boxShadow:
-                  "0px 2px 1px -1px red, 0px 1px 1px 0px red, 0px 1px 3px 0px red",
-              }}
-            >
-              <CardContent>
-                <Box display="flex">
-                  <Box display="flex">
-                    <Icon>
-                      <AccountBalanceWalletIcon sx={{ color: "red" }} />
-                    </Icon>
-                    <Stack direction="column" sx={{ ml: 1 }}>
-                      <Typography variant="body2" sx={{ fontWeight: "bold" }}>
-                        Wallet 3
-                      </Typography>
-                      <Typography
-                        sx={{ fontSize: "0.7rem", fontWeight: "bold" }}
-                      >
-                        AVL
-                      </Typography>
-                    </Stack>
-                  </Box>
-                  <Box sx={{ ml: "auto" }}>
-                    <Typography sx={{ fontWeight: "bold" }}>
-                      $3,942.54
+                  <Box
+                    display="flex"
+                    sx={{
+                      background: "#d9d9d9",
+                      borderRadius: 1,
+                      px: 1,
+                      py: 0.5,
+                      mt: 7,
+                    }}
+                  >
+                    <Typography variant="body2" sx={{ fontWeight: "bold" }}>
+                      124D5q765EC7ab214Dot
                     </Typography>
+                    <IconButton size="small" sx={{ ml: "auto" }}>
+                      <ContentCopyIcon sx={{ fontSize: "12px" }} />
+                    </IconButton>
                   </Box>
-                </Box>
-                <Box
-                  display="flex"
-                  sx={{
-                    background: "#d9d9d9",
-                    borderRadius: 1,
-                    px: 1,
-                    py: 0.5,
-                    mt: 7,
-                  }}
+                </Link>
+              </CardContent>
+            </Card>
+            <Card
+              sx={{
+                boxShadow:
+                  "0px 2px 1px -1px red, 0px 1px 1px 0px red, 0px 1px 3px 0px red",
+              }}
+            >
+              <CardContent>
+                <Link
+                  href="/wallets/3"
+                  sx={{ textDecoration: "none", color: "#000000" }}
                 >
-                  <Typography variant="body2" sx={{ fontWeight: "bold" }}>
-                    124D5q765EC7ab214Dot
-                  </Typography>
-                  <IconButton size="small" sx={{ ml: "auto" }}>
-                    <ContentCopyIcon sx={{ fontSize: "12px" }} />
-                  </IconButton>
-                </Box>
+                  <Box display="flex">
+                    <Box display="flex">
+                      <Icon>
+                        <AccountBalanceWalletIcon sx={{ color: "red" }} />
+                      </Icon>
+                      <Stack direction="column" sx={{ ml: 1 }}>
+                        <Typography variant="body2" sx={{ fontWeight: "bold" }}>
+                          Wallet 2
+                        </Typography>
+                        <Typography
+                          sx={{ fontSize: "0.7rem", fontWeight: "bold" }}
+                        >
+                          ETHER
+                        </Typography>
+                      </Stack>
+                    </Box>
+                    <Box sx={{ ml: "auto" }}>
+                      <Typography sx={{ fontWeight: "bold" }}>
+                        $123.67
+                      </Typography>
+                    </Box>
+                  </Box>
+                  <Box
+                    display="flex"
+                    sx={{
+                      background: "#d9d9d9",
+                      borderRadius: 1,
+                      px: 1,
+                      py: 0.5,
+                      mt: 7,
+                    }}
+                  >
+                    <Typography variant="body2" sx={{ fontWeight: "bold" }}>
+                      124D5q765EC7ab214Dot
+                    </Typography>
+                    <IconButton size="small" sx={{ ml: "auto" }}>
+                      <ContentCopyIcon sx={{ fontSize: "12px" }} />
+                    </IconButton>
+                  </Box>
+                </Link>
+              </CardContent>
+            </Card>
+            <Card
+              sx={{
+                boxShadow:
+                  "0px 2px 1px -1px red, 0px 1px 1px 0px red, 0px 1px 3px 0px red",
+              }}
+            >
+              <CardContent>
+                <Link
+                  href="/wallets/1"
+                  sx={{ textDecoration: "none", color: "#000000" }}
+                >
+                  <Box display="flex">
+                    <Box display="flex">
+                      <Icon>
+                        <AccountBalanceWalletIcon sx={{ color: "red" }} />
+                      </Icon>
+                      <Stack direction="column" sx={{ ml: 1 }}>
+                        <Typography variant="body2" sx={{ fontWeight: "bold" }}>
+                          Wallet 3
+                        </Typography>
+                        <Typography
+                          sx={{ fontSize: "0.7rem", fontWeight: "bold" }}
+                        >
+                          AVL
+                        </Typography>
+                      </Stack>
+                    </Box>
+                    <Box sx={{ ml: "auto" }}>
+                      <Typography sx={{ fontWeight: "bold" }}>
+                        $3,942.54
+                      </Typography>
+                    </Box>
+                  </Box>
+                  <Box
+                    display="flex"
+                    sx={{
+                      background: "#d9d9d9",
+                      borderRadius: 1,
+                      px: 1,
+                      py: 0.5,
+                      mt: 7,
+                    }}
+                  >
+                    <Typography variant="body2" sx={{ fontWeight: "bold" }}>
+                      124D5q765EC7ab214Dot
+                    </Typography>
+                    <IconButton size="small" sx={{ ml: "auto" }}>
+                      <ContentCopyIcon sx={{ fontSize: "12px" }} />
+                    </IconButton>
+                  </Box>
+                </Link>
               </CardContent>
             </Card>
 

@@ -42,7 +42,7 @@ const Login = () => {
         setLoading(true);
         await login(email, password);
         setLoading(false);
-        navigate("/");
+        navigate("/dashboard");
       } catch (error) {
         setLoading(false);
         setErrorMsg({ passwordLogin: "Incorrect email or password" });

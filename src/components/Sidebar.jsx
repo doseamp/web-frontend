@@ -46,7 +46,13 @@ const Sidebar = ({ pages, utils }) => {
                   <ListItemButton
                     LinkComponent="a"
                     to={page.link}
-                    sx={{ background: "#54ADF3", color: "#ffffff" }}
+                    sx={{
+                      background: "#54ADF3",
+                      color: "#ffffff",
+                      ":hover": {
+                        background: "#54ADF3",
+                      },
+                    }}
                   >
                     <ListItemIcon sx={{ color: "#ffffff" }}>
                       {page.icon}
