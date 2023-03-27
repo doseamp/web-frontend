@@ -21,42 +21,42 @@ const DbGrid3 = () => {
         <Stack direction="row" sx={{ py: 1 }}>
           <Typography sx={{ fontWeight: "bold" }}>NGN ⇌ USDT</Typography>
           <Box sx={{ ml: "auto" }}>
-            <Typography sx={{ color: "red" }}>-$378.33</Typography>
+            <Typography sx={{ color: "#D61717" }}>-$378.33</Typography>
             <Typography sx={{ fontSize: "8px" }}>Today, 10.40 am</Typography>
           </Box>
         </Stack>
         <Stack direction="row" sx={{ py: 1 }}>
           <Typography sx={{ fontWeight: "bold" }}>NGN ⇌ USDT</Typography>
           <Box sx={{ ml: "auto" }}>
-            <Typography sx={{ color: "green" }}>+$378.33</Typography>
+            <Typography sx={{ color: "#17D641" }}>+$378.33</Typography>
             <Typography sx={{ fontSize: "8px" }}>Today, 10.40 am</Typography>
           </Box>
         </Stack>
         <Stack direction="row" sx={{ py: 1 }}>
           <Typography sx={{ fontWeight: "bold" }}>NGN ⇌ USDT</Typography>
           <Box sx={{ ml: "auto" }}>
-            <Typography sx={{ color: "red" }}>-$378.33</Typography>
+            <Typography sx={{ color: "#D61717" }}>-$378.33</Typography>
             <Typography sx={{ fontSize: "8px" }}>Today, 10.40 am</Typography>
           </Box>
         </Stack>
         <Stack direction="row" sx={{ py: 1 }}>
           <Typography sx={{ fontWeight: "bold" }}>NGN ⇌ USDT</Typography>
           <Box sx={{ ml: "auto" }}>
-            <Typography sx={{ color: "green" }}>+$378.33</Typography>
+            <Typography sx={{ color: "#17D641" }}>+$378.33</Typography>
             <Typography sx={{ fontSize: "8px" }}>Today, 10.40 am</Typography>
           </Box>
         </Stack>
         <Stack direction="row" sx={{ py: 1 }}>
           <Typography sx={{ fontWeight: "bold" }}>NGN ⇌ USDT</Typography>
           <Box sx={{ ml: "auto" }}>
-            <Typography sx={{ color: "red" }}>-$378.33</Typography>
+            <Typography sx={{ color: "#D61717" }}>-$378.33</Typography>
             <Typography sx={{ fontSize: "8px" }}>Today, 10.40 am</Typography>
           </Box>
         </Stack>
         <Stack direction="row" sx={{ py: 1 }}>
           <Typography sx={{ fontWeight: "bold" }}>NGN ⇌ USDT</Typography>
           <Box sx={{ ml: "auto" }}>
-            <Typography sx={{ color: "green" }}>+$378.33</Typography>
+            <Typography sx={{ color: "#17D641" }}>+$378.33</Typography>
             <Typography sx={{ fontSize: "8px" }}>Today, 10.40 am</Typography>
           </Box>
         </Stack>

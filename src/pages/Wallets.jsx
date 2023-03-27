@@ -24,7 +24,16 @@ import { pages, mobilePages, utils } from "../utils/Pages";
 const Wallets = () => {
   return (
     <Box>
-      <DashboardMenu />
+      <Box
+        sx={{
+          display: {
+            xs: "none",
+            md: "block",
+          },
+        }}
+      >
+        <DashboardMenu />
+      </Box>
       <Sidebar pages={pages} utils={utils} />
 
       <Box
@@ -35,9 +44,9 @@ const Wallets = () => {
           },
         }}
       >
-        <Toolbar />
+        <Toolbar sx={{ display: { xs: "none", md: "block" } }} />
 
-        <Box sx={{ px: 4, py: 2, mt: 4 }}>
+        <Box sx={{ px: 4, py: 2, mt: { xs: 2, md: 4 } }}>
           <Box
             sx={{
               display: "grid",
@@ -53,7 +62,7 @@ const Wallets = () => {
             <Card
               sx={{
                 boxShadow:
-                  "0px 2px 1px -1px green, 0px 1px 1px 0px green, 0px 1px 3px 0px green",
+                  "0px 2px 1px -1px #17D641, 0px 1px 1px 0px #17D641, 0px 1px 3px 0px #17D641",
               }}
             >
               <CardContent>
@@ -64,7 +73,7 @@ const Wallets = () => {
                   <Box display="flex">
                     <Box display="flex">
                       <Icon>
-                        <AccountBalanceWalletIcon sx={{ color: "green" }} />
+                        <AccountBalanceWalletIcon sx={{ color: "#17D641" }} />
                       </Icon>
                       <Stack direction="column" sx={{ ml: 1 }}>
                         <Typography variant="body2" sx={{ fontWeight: "bold" }}>
@@ -117,7 +126,7 @@ const Wallets = () => {
                   <Box display="flex">
                     <Box display="flex">
                       <Icon>
-                        <AccountBalanceWalletIcon sx={{ color: "red" }} />
+                        <AccountBalanceWalletIcon sx={{ color: "#D61717" }} />
                       </Icon>
                       <Stack direction="column" sx={{ ml: 1 }}>
                         <Typography variant="body2" sx={{ fontWeight: "bold" }}>
@@ -170,7 +179,7 @@ const Wallets = () => {
                   <Box display="flex">
                     <Box display="flex">
                       <Icon>
-                        <AccountBalanceWalletIcon sx={{ color: "red" }} />
+                        <AccountBalanceWalletIcon sx={{ color: "#D61717" }} />
                       </Icon>
                       <Stack direction="column" sx={{ ml: 1 }}>
                         <Typography variant="body2" sx={{ fontWeight: "bold" }}>

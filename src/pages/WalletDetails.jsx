@@ -52,7 +52,8 @@ const WalletDetails = () => {
             sx={{
               width: {
                 xs: "75%",
-                md: "25%",
+                md: "35%",
+                lg: "25%",
               },
             }}
           >

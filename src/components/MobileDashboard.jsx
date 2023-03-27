@@ -141,7 +141,7 @@ const MobileDashboard = () => {
               <Box sx={{ ml: "auto" }}>
                 <Typography
                   variant="body2"
-                  sx={{ fontWeight: "bold", color: "red" }}
+                  sx={{ fontWeight: "bold", color: "#D61717" }}
                 >
                   -$378.33
                 </Typography>
@@ -157,7 +157,7 @@ const MobileDashboard = () => {
               <Box sx={{ ml: "auto" }}>
                 <Typography
                   variant="body2"
-                  sx={{ fontWeight: "bold", color: "green" }}
+                  sx={{ fontWeight: "bold", color: "#17D641" }}
                 >
                   -$378.33
                 </Typography>
@@ -173,7 +173,7 @@ const MobileDashboard = () => {
               <Box sx={{ ml: "auto" }}>
                 <Typography
                   variant="body2"
-                  sx={{ fontWeight: "bold", color: "red" }}
+                  sx={{ fontWeight: "bold", color: "#D61717" }}
                 >
                   -$378.33
                 </Typography>
@@ -189,7 +189,7 @@ const MobileDashboard = () => {
               <Box sx={{ ml: "auto" }}>
                 <Typography
                   variant="body2"
-                  sx={{ fontWeight: "bold", color: "green" }}
+                  sx={{ fontWeight: "bold", color: "#17D641" }}
                 >
                   -$378.33
                 </Typography>
@@ -205,7 +205,7 @@ const MobileDashboard = () => {
               <Box sx={{ ml: "auto" }}>
                 <Typography
                   variant="body2"
-                  sx={{ fontWeight: "bold", color: "red" }}
+                  sx={{ fontWeight: "bold", color: "#D61717" }}
                 >
                   -$378.33
                 </Typography>
@@ -221,7 +221,7 @@ const MobileDashboard = () => {
               <Box sx={{ ml: "auto" }}>
                 <Typography
                   variant="body2"
-                  sx={{ fontWeight: "bold", color: "red" }}
+                  sx={{ fontWeight: "bold", color: "#D61717" }}
                 >
                   -$378.33
                 </Typography>
@@ -237,7 +237,7 @@ const MobileDashboard = () => {
               <Box sx={{ ml: "auto" }}>
                 <Typography
                   variant="body2"
-                  sx={{ fontWeight: "bold", color: "green" }}
+                  sx={{ fontWeight: "bold", color: "#17D641" }}
                 >
                   -$378.33
                 </Typography>
@@ -253,7 +253,7 @@ const MobileDashboard = () => {
               <Box sx={{ ml: "auto" }}>
                 <Typography
                   variant="body2"
-                  sx={{ fontWeight: "bold", color: "red" }}
+                  sx={{ fontWeight: "bold", color: "#D61717" }}
                 >
                   -$378.33
                 </Typography>
@@ -269,7 +269,7 @@ const MobileDashboard = () => {
               <Box sx={{ ml: "auto" }}>
                 <Typography
                   variant="body2"
-                  sx={{ fontWeight: "bold", color: "red" }}
+                  sx={{ fontWeight: "bold", color: "#D61717" }}
                 >
                   -$378.33
                 </Typography>
@@ -285,7 +285,7 @@ const MobileDashboard = () => {
               <Box sx={{ ml: "auto" }}>
                 <Typography
                   variant="body2"
-                  sx={{ fontWeight: "bold", color: "green" }}
+                  sx={{ fontWeight: "bold", color: "#17D641" }}
                 >
                   -$378.33
                 </Typography>
@@ -301,7 +301,7 @@ const MobileDashboard = () => {
               <Box sx={{ ml: "auto" }}>
                 <Typography
                   variant="body2"
-                  sx={{ fontWeight: "bold", color: "green" }}
+                  sx={{ fontWeight: "bold", color: "#17D641" }}
                 >
                   -$378.33
                 </Typography>
@@ -317,7 +317,7 @@ const MobileDashboard = () => {
               <Box sx={{ ml: "auto" }}>
                 <Typography
                   variant="body2"
-                  sx={{ fontWeight: "bold", color: "red" }}
+                  sx={{ fontWeight: "bold", color: "#D61717" }}
                 >
                   -$378.33
                 </Typography>
