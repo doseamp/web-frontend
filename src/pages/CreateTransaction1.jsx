@@ -14,7 +14,7 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { pages, mobilePages, utils } from "../utils/Pages";
 
-const Transactions = () => {
+const CreateTransaction1 = () => {
   return (
     <Box>
       <Box
@@ -108,4 +108,4 @@ const Transactions = () => {
   );
 };
 
-export default Transactions;
+export default CreateTransaction1;
