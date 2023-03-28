@@ -45,44 +45,109 @@ const Transactions = () => {
         <Box sx={{ px: 4, py: 2, mt: { xs: 2, md: 4 } }}>
           <Box
             sx={{
-              width: {
-                xs: "75%",
-                md: "35%",
-                lg: "25%",
-              },
               mb: 4,
             }}
           >
-            <Box
-              display="flex"
-              alignItems="center"
-              justifyContent="space-between"
-            >
+            <Box display="flex">
               <Box
-                component="img"
-                src="nigeria.png"
-                sx={{ width: "70px", height: "70px" }}
-              />
-              <Stack direction="column">
-                <Typography sx={{ fontSize: "0.7rem", fontWeight: "bold" }}>
-                  Nigerian Naira
-                </Typography>
-                <Typography sx={{ fontWeight: "bold", fontSize: "1.5rem" }}>
-                  ₦ 80,000
-                </Typography>
+                sx={{
+                  width: {
+                    xs: "75%",
+                    md: "35%",
+                    lg: "25%",
+                  },
+                }}
+              >
+                <Box
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="space-between"
+                >
+                  <Box
+                    component="img"
+                    src="nigeria.png"
+                    sx={{ width: "70px", height: "70px" }}
+                  />
+                  <Stack direction="column">
+                    <Typography sx={{ fontSize: "0.7rem", fontWeight: "bold" }}>
+                      Nigerian Naira
+                    </Typography>
+                    <Typography sx={{ fontWeight: "bold", fontSize: "1.5rem" }}>
+                      ₦ 80,000
+                    </Typography>
+                  </Stack>
+                  <IconButton>
+                    <VisibilityOffIcon />
+                  </IconButton>
+                </Box>
+
+                <Box display="flex" alignItems="center">
+                  <Typography variant="body2" sx={{ fontWeight: "bold" }}>
+                    ID: 124D5q765EC7ab214Dot
+                  </Typography>
+                  <IconButton sx={{ ml: "auto" }}>
+                    <ContentCopyIcon sx={{ fontSize: "1rem" }} />
+                  </IconButton>
+                </Box>
+              </Box>
+
+              <Stack
+                direction="column"
+                sx={{ ml: "auto", display: { xs: "none", md: "flex" } }}
+                gap={2}
+              >
+                <Button sx={{ boxShadow: 1, p: 1 }}>
+                  <Typography
+                    sx={{
+                      fontWeight: "bold",
+                      textTransform: "capitalize",
+                      color: "#000000",
+                    }}
+                  >
+                    Create Transaction
+                  </Typography>
+                </Button>
+                <Button sx={{ boxShadow: 1, p: 1 }}>
+                  <Typography
+                    sx={{
+                      fontWeight: "bold",
+                      textTransform: "capitalize",
+                      color: "#000000",
+                    }}
+                  >
+                    Fund Account
+                  </Typography>
+                </Button>
               </Stack>
-              <IconButton>
-                <VisibilityOffIcon />
-              </IconButton>
             </Box>
-            <Box display="flex" alignItems="center">
-              <Typography variant="body2" sx={{ fontWeight: "bold" }}>
-                ID: 124D5q765EC7ab214Dot
-              </Typography>
-              <IconButton sx={{ ml: "auto" }}>
-                <ContentCopyIcon sx={{ fontSize: "1rem" }} />
-              </IconButton>
-            </Box>
+            <Stack
+              direction="column"
+              sx={{ mt: 2, display: { xs: "flex", md: "none" } }}
+              gap={2}
+            >
+              <Button sx={{ boxShadow: 1, p: 1 }}>
+                <Typography
+                  sx={{
+                    fontWeight: "bold",
+                    textTransform: "capitalize",
+                    color: "#000000",
+                  }}
+                >
+                  Create Transaction
+                </Typography>
+              </Button>
+              <Button sx={{ boxShadow: 1, p: 1 }}>
+                <Typography
+                  sx={{
+                    fontWeight: "bold",
+                    textTransform: "capitalize",
+                    color: "#000000",
+                  }}
+                >
+                  Fund Account
+                </Typography>
+              </Button>
+            </Stack>
           </Box>
 
           <Card>
@@ -106,6 +171,7 @@ const Transactions = () => {
                       xs: "1fr 1fr 1fr ",
                       md: "1fr 1fr 1fr 1fr 1fr 1fr 1fr",
                     },
+                    gap: 1,
                   }}
                 >
                   <Stack justifyContent="center" alignItems="center">
