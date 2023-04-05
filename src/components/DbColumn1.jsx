@@ -15,7 +15,7 @@ import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import SquareIcon from "@mui/icons-material/Square";
 import DonutChart from "./DonutChart";
 
-const DbColumn1 = () => {
+const DbColumn1 = ({ setOpenModal }) => {
   return (
     <Box justifyContent="center">
       <Box>
@@ -138,6 +138,7 @@ const DbColumn1 = () => {
                         backgroundColor: "#54adf3",
                       },
                     }}
+                    onClick={() => setOpenModal(true)}
                   >
                     Connect
                   </Button>
@@ -185,6 +186,7 @@ const DbColumn1 = () => {
                         backgroundColor: "#54adf3",
                       },
                     }}
+                    onClick={() => setOpenModal(true)}
                   >
                     Connect
                   </Button>
@@ -232,6 +234,7 @@ const DbColumn1 = () => {
                         backgroundColor: "#54adf3",
                       },
                     }}
+                    onClick={() => setOpenModal(true)}
                   >
                     Connect
                   </Button>
