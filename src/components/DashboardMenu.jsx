@@ -53,7 +53,7 @@ const DashboardMenu = () => {
                 pt: 2,
               }}
             >
-              Hi, {user.displayName.split(" ")[0]}
+              Hi, Tolu
             </Typography>
           )}
           <Typography sx={{ fontSize: "0.7rem" }}>
