@@ -120,7 +120,7 @@ const Wallets = () => {
             >
               <CardContent>
                 <Link
-                  href="/wallets/3"
+                  href="/wallets/2"
                   sx={{ textDecoration: "none", color: "#000000" }}
                 >
                   <Box display="flex">
@@ -173,7 +173,7 @@ const Wallets = () => {
             >
               <CardContent>
                 <Link
-                  href="/wallets/1"
+                  href="/wallets/3"
                   sx={{ textDecoration: "none", color: "#000000" }}
                 >
                   <Box display="flex">

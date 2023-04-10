@@ -7,11 +7,15 @@ import {
   IconButton,
 } from "@mui/material";
 
+import { AuthContext } from "../contexts/AuthContext";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import SettingsIcon from "@mui/icons-material/Settings";
 import LogoutIcon from "@mui/icons-material/Logout";
+import { useContext } from "react";
 
 const DashboardMenu = () => {
+  const { user } = useContext(AuthContext);
+  console.log(user);
   return (
     <AppBar
       className="headingStyle"
@@ -41,15 +45,17 @@ const DashboardMenu = () => {
           />
         </IconButton>
         <Stack direction="column" sx={{ ml: 1 }}>
-          <Typography
-            variant="h6"
-            sx={{
-              fontWeight: "bold",
-              pt: 2,
-            }}
-          >
-            Hi, Tolu
-          </Typography>
+          {user && (
+            <Typography
+              variant="h6"
+              sx={{
+                fontWeight: "bold",
+                pt: 2,
+              }}
+            >
+              Hi, {user.displayName.split(" ")[0]}
+            </Typography>
+          )}
           <Typography sx={{ fontSize: "0.7rem" }}>
             Tuesday, 7th March 2023
           </Typography>

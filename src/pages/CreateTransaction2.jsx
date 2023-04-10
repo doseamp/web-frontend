@@ -8,8 +8,8 @@ import {
   FormHelperText,
   Button,
   CircularProgress,
-  MenuItem,
   IconButton,
+  Autocomplete,
 } from "@mui/material";
 
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
@@ -17,16 +17,61 @@ import DashboardMenu from "../components/DashboardMenu";
 import Sidebar from "../components/Sidebar";
 import MobileDashboardMenu from "../components/MobileDashboardMenu";
 import { pages, mobilePages, utils } from "../utils/Pages";
-import { countries } from "../utils/Countries";
 import { useState } from "react";
+import { useEffect } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const CreateTransaction2 = () => {
   const [bank, setBank] = useState("");
+  const [bankCode, setBankCode] = useState("");
   const [accountNo, setAccountNo] = useState("");
+  const [accountName, setAccountName] = useState("");
   const [amount, setAmount] = useState("");
   const [description, setDescription] = useState("");
-  const [country, setCountry] = useState("");
+  const [bankList, setBankList] = useState([]);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+  const limitChar = 10;
+  console.log(bankList);
+  console.log(bank);
+  console.log(amount);
+  console.log(setLoading);
+  console.log(description);
+
+  useEffect(() => {
+    const listBanks = async () => {
+      const { data } = await axios({
+        url: "http://127.0.0.1:5000/api/utils/list_banks",
+        method: "get",
+      });
+      const banks = [];
+      data.data.forEach((bank) => {
+        banks.push({ label: bank.name, code: bank.code });
+      });
+      setBankList(banks);
+    };
+    listBanks();
+  }, []);
+
+  if (accountNo.length === 10) {
+    const getAccName = async () => {
+      const { data } = await axios({
+        url: "http://127.0.0.1:5000/api/utils/account_name",
+        method: "post",
+        data: {
+          account_number: accountNo,
+          bank_code: bankCode,
+        },
+      });
+      if (data.data.account_name) {
+        setAccountName(data.data.account_name);
+      } else {
+        setAccountName("Not found");
+      }
+    };
+    getAccName();
+  }
 
   return (
     <Box>
@@ -54,7 +99,12 @@ const CreateTransaction2 = () => {
 
         <Box sx={{ px: 4, py: 2, mt: { xs: 2, md: 4 } }}>
           <Box display="flex" alignItems="center" sx={{ mb: 4 }}>
-            <IconButton sx={{ border: "1px solid #000000" }}>
+            <IconButton
+              sx={{ border: "1px solid #000000" }}
+              onClick={() => {
+                navigate(-1);
+              }}
+            >
               <ArrowBackIcon />
             </IconButton>
             <Typography
@@ -81,20 +131,19 @@ const CreateTransaction2 = () => {
                 }}
               >
                 <label>Bank</label>
-                <TextField
-                  select
-                  fullWidth
-                  sx={{ mb: 2 }}
-                  value={country}
-                  onChange={() => {}}
+                <Autocomplete
+                  disablePortal
                   size="small"
-                >
-                  {countries.map((country) => (
-                    <MenuItem value={country.name} key={country.name}>
-                      {country.mobileCode}: {country.code}
-                    </MenuItem>
-                  ))}
-                </TextField>
+                  sx={{ mb: 2 }}
+                  id="combo-box-demo"
+                  options={bankList}
+                  onChange={(e, value) => {
+                    setBank(value.label);
+                    setBankCode(value.code);
+                  }}
+                  fullWidth
+                  renderInput={(params) => <TextField {...params} />}
+                />
 
                 <label>Account Number</label>
                 <TextField
@@ -102,14 +151,22 @@ const CreateTransaction2 = () => {
                   fullWidth
                   required
                   size="small"
-                  maxLength="10"
                   onChange={(e) => {
-                    setAccountNo(e.target.value);
+                    if (e.target.value.toString().length <= limitChar) {
+                      setAccountNo(e.target.value);
+                    }
                   }}
+                  value={accountNo}
                 />
-                <FormHelperText sx={{ mb: 2, color: "#17D641" }}>
-                  Account name
-                </FormHelperText>
+                {accountNo.length < 10 ? (
+                  <FormHelperText error sx={{ mb: 2 }}>
+                    Account number must be 10 digits
+                  </FormHelperText>
+                ) : (
+                  <FormHelperText sx={{ mb: 2, color: "#17D641" }}>
+                    {accountName}
+                  </FormHelperText>
+                )}
 
                 <label>Amount</label>
                 <TextField

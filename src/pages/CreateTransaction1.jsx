@@ -13,8 +13,11 @@ import MobileDashboardMenu from "../components/MobileDashboardMenu";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { pages, mobilePages, utils } from "../utils/Pages";
+import { useNavigate } from "react-router-dom";
 
 const CreateTransaction1 = () => {
+  const navigate = useNavigate();
+
   return (
     <Box>
       <Box
@@ -41,7 +44,12 @@ const CreateTransaction1 = () => {
 
         <Box sx={{ px: 4, py: 2, mt: { xs: 2, md: 4 } }}>
           <Box display="flex" alignItems="center" sx={{ mb: 4 }}>
-            <IconButton sx={{ border: "1px solid #000000" }}>
+            <IconButton
+              sx={{ border: "1px solid #000000" }}
+              onClick={() => {
+                navigate(-1);
+              }}
+            >
               <ArrowBackIcon />
             </IconButton>
             <Typography
@@ -63,7 +71,11 @@ const CreateTransaction1 = () => {
                 Send Money
               </Typography>
 
-              <Card>
+              <Card
+                onClick={() => {
+                  navigate("/transactions/create/2");
+                }}
+              >
                 <CardContent>
                   <Box display="flex">
                     <Box>

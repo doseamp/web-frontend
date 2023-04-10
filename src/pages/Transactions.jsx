@@ -16,8 +16,11 @@ import MobileDashboardMenu from "../components/MobileDashboardMenu";
 import { pages, mobilePages, utils } from "../utils/Pages";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import { useNavigate } from "react-router-dom";
 
 const Transactions = () => {
+  const navigate = useNavigate();
+
   return (
     <Box>
       <Box
@@ -125,7 +128,12 @@ const Transactions = () => {
               sx={{ mt: 2, display: { xs: "flex", md: "none" } }}
               gap={2}
             >
-              <Button sx={{ boxShadow: 1, p: 1 }}>
+              <Button
+                sx={{ boxShadow: 1, p: 1 }}
+                onClick={() => {
+                  navigate("/transactions/create/1");
+                }}
+              >
                 <Typography
                   sx={{
                     fontWeight: "bold",
