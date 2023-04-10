@@ -21,6 +21,7 @@ import { useState } from "react";
 const CreateTransaction3 = () => {
   const [pin, setPin] = useState("");
   const [openModal, setOpenModal] = useState(false);
+  console.log(pin);
 
   return (
     <Box>
