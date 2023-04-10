@@ -5,16 +5,19 @@ const Guide = () => {
   return (
     <Box
       sx={{
-        py: 4,
-        px: {
-          xs: 2,
-          md: 8,
-        },
         background: "#f5f5f5",
-        borderRadius: "2px",
       }}
     >
-      <Container maxWidth="xl">
+      <Container
+        maxWidth="lg"
+        sx={{
+          py: 4,
+          px: {
+            xs: 2,
+            md: 12,
+          },
+        }}
+      >
         <Grid container justifyContent="space-between">
           <Grid item xs={12} md={5} sx={{ py: 2 }}>
             <Typography

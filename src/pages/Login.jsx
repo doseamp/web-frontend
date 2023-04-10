@@ -11,6 +11,7 @@ import {
   FormHelperText,
   useMediaQuery,
   useTheme,
+  Toolbar,
 } from "@mui/material";
 
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
@@ -60,6 +61,7 @@ const Login = () => {
   return (
     <Box>
       <Navbar />
+      <Toolbar />
       {md ? (
         <Box
           className="loginParent"

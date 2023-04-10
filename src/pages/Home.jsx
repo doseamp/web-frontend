@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Toolbar } from "@mui/material";
 import ContactUs from "../components/ContactUs";
 import Guide from "../components/Guide";
 import Info from "../components/Info";
@@ -10,6 +10,7 @@ const Home = () => {
   return (
     <Box>
       <Navbar />
+      <Toolbar />
       <Showcase />
       <Guide />
       <Info />

@@ -1,46 +1,29 @@
-import { AppBar, Toolbar, Container } from "@mui/material";
+import { AppBar, Toolbar, Container, Box, Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import MainMenu from "./MainMenu";
 import MobileMenu from "./MobileMenu";
-
-import BusinessIcon from "@mui/icons-material/Business";
-import PaymentsIcon from "@mui/icons-material/Payments";
-import PaidIcon from "@mui/icons-material/Paid";
-import HelpCenterIcon from "@mui/icons-material/HelpCenter";
-import LanguageIcon from "@mui/icons-material/Language";
-import LoginIcon from "@mui/icons-material/Login";
 
 const Navbar = () => {
   const pages = [
     {
       name: "Company",
       route: "/",
-      icon: <BusinessIcon />,
     },
     {
       name: "Payments",
       route: "/",
-      icon: <PaymentsIcon />,
     },
     {
       name: "Trade",
       route: "/",
-      icon: <PaidIcon />,
     },
     {
       name: "Help Center",
       route: "/",
-      icon: <HelpCenterIcon />,
     },
     {
       name: "English",
       route: "/",
-      icon: <LanguageIcon />,
-    },
-    {
-      name: "Login",
-      route: "/login",
-      icon: <LoginIcon />,
     },
   ];
 
@@ -50,9 +33,9 @@ const Navbar = () => {
         display="flex"
         sx={{
           background: "#ffffff",
-          boxShadow: "none",
+          boxShadow: 1,
           justifyContent: "center",
-          position: "static",
+          position: "fixed",
         }}
       >
         <Toolbar>
@@ -62,6 +45,70 @@ const Navbar = () => {
 
           <MainMenu pages={pages} />
           <MobileMenu pages={pages} />
+
+          {/* cta  */}
+
+          <Box
+            sx={{
+              ml: "auto",
+              display: {
+                xs: "none",
+                md: "block",
+              },
+            }}
+          >
+            <Link
+              to={"/login"}
+              style={{
+                textDecoration: "none",
+                margin: "0px 16px 0px 40px",
+              }}
+            >
+              <Button
+                className="buttonStyle"
+                size="small"
+                sx={{
+                  py: 1,
+                  color: "#000000",
+                  fontWeight: "bold",
+                  textTransform: "capitalize",
+                  background: "#ffffff",
+                  ":hover": {
+                    boxShadow: "#54adf3",
+                    background: "#ffffff",
+                  },
+                }}
+              >
+                Login
+              </Button>
+            </Link>
+
+            <Link
+              to="/signup"
+              style={{
+                textDecoration: "none",
+              }}
+            >
+              <Button
+                className="buttonStyle"
+                size="small"
+                sx={{
+                  py: 1,
+                  px: 2,
+                  mx: 1,
+                  color: "#000000",
+                  fontWeight: "bold",
+                  textTransform: "capitalize",
+                  background: "#54adf3",
+                  ":hover": {
+                    background: "#54adf3",
+                  },
+                }}
+              >
+                Sign up
+              </Button>
+            </Link>
+          </Box>
         </Toolbar>
       </AppBar>
     </Container>

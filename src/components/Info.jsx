@@ -4,16 +4,19 @@ const Info = () => {
   return (
     <Box
       sx={{
-        py: 4,
-        px: {
-          xs: 2,
-          md: 8,
-        },
         background: "#54adf3",
-        borderRadius: "2px",
       }}
     >
-      <Container maxWidth="xl">
+      <Container
+        maxWidth="lg"
+        sx={{
+          py: 4,
+          px: {
+            xs: 2,
+            md: 12,
+          },
+        }}
+      >
         <Typography
           className="headingStyle"
           sx={{

@@ -14,6 +14,7 @@ import {
   Box,
   useMediaQuery,
   useTheme,
+  Toolbar,
 } from "@mui/material";
 
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
@@ -133,6 +134,7 @@ const Signup = () => {
   return (
     <Box>
       <Navbar />
+      <Toolbar />
       {md ? (
         <Box
           className="signupParent"
