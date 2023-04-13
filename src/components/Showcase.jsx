@@ -11,7 +11,6 @@ import {
 
 const Showcase = () => {
   const theme = useTheme();
-  console.log(theme);
   const md = useMediaQuery(theme.breakpoints.down("md"));
 
   return (

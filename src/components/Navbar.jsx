@@ -36,11 +36,17 @@ const Navbar = () => {
           boxShadow: 1,
           justifyContent: "center",
           position: "fixed",
+          py: 0.5,
         }}
       >
         <Toolbar>
           <Link to="/">
-            <img src="logo.png" alt="logo" style={{ width: 175, height: 90 }} />
+            <Box
+              component="img"
+              src="logo.png"
+              alt="logo"
+              style={{ width: 175, height: 50 }}
+            />
           </Link>
 
           <MainMenu pages={pages} />

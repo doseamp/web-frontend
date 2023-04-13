@@ -123,6 +123,7 @@ const Signup = () => {
       .then((response) => {
         setDefaultCountry(response.country);
         const name = countries.find((item) => item.name === defaultCountry);
+        console.log("in here");
         setCountryCode(name.mobileCode);
         setCountry(defaultCountry);
       })
