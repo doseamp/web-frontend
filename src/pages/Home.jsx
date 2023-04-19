@@ -1,36 +1,21 @@
-import { useRef } from "react";
-import { addDoc, collection } from "@firebase/firestore";
-import { firestore } from "../firebase";
+import { Box } from "@mui/material";
+import ContactUs from "../components/ContactUs";
+import Guide from "../components/Guide";
+import Info from "../components/Info";
+import Showcase from "../components/Showcase";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
 
 const Home = () => {
-  const messageRef = useRef();
-  const ref = collection(firestore, "names");
-
-  const handleSave = async (e) => {
-    e.preventDefault();
-    console.log(messageRef.current.value);
-
-    let data = {
-      name: messageRef.current.value,
-    };
-
-    try {
-      addDoc(ref, data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   return (
-    <div>
-      <h1>Homepage</h1>
-
-      <form onSubmit={handleSave}>
-        <label>Name</label>
-        <input type="text" ref={messageRef} />
-        <button type="submit">Save</button>
-      </form>
-    </div>
+    <Box>
+      <Navbar />
+      <Showcase />
+      <Guide />
+      <Info />
+      <ContactUs />
+      <Footer />
+    </Box>
   );
 };
 
