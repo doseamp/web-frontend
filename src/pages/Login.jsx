@@ -61,7 +61,7 @@ const Login = () => {
   return (
     <Box>
       <Navbar />
-      <Toolbar />
+      <Toolbar sx={{ mb: 1 }} />
       {md ? (
         <Box
           className="loginParent"

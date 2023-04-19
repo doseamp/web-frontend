@@ -12,10 +12,14 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import SettingsIcon from "@mui/icons-material/Settings";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { useContext } from "react";
+import { signout } from "../utils/AuthFn";
+import { useNavigate } from "react-router-dom";
 
 const DashboardMenu = () => {
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
   console.log(user);
+
   return (
     <AppBar
       className="headingStyle"
@@ -86,7 +90,13 @@ const DashboardMenu = () => {
               Tolu
             </Typography>
           </IconButton>
-          <IconButton sx={{ color: "#000000" }}>
+          <IconButton
+            sx={{ color: "#000000" }}
+            onClick={() => {
+              navigate("/");
+              signout();
+            }}
+          >
             <LogoutIcon />
           </IconButton>
         </Stack>

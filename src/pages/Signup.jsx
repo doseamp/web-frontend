@@ -135,7 +135,7 @@ const Signup = () => {
   return (
     <Box>
       <Navbar />
-      <Toolbar />
+      <Toolbar sx={{ mb: 1 }} />
       {md ? (
         <Box
           className="signupParent"
