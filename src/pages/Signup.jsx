@@ -72,7 +72,7 @@ const Signup = () => {
 
       await signup(firstName, lastName, email, phoneNumber, password);
       setLoading(false);
-      navigate("/login");
+      navigate("/confirm-email");
     } catch (error) {
       setLoading(false);
       if (error.message.includes("email")) {
