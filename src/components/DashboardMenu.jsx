@@ -19,6 +19,18 @@ const DashboardMenu = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   console.log(user);
+  const getDate = () => {
+    const date = new Date();
+
+    const options = {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    };
+
+    return date.toLocaleString("en-IN", options);
+  };
 
   return (
     <AppBar
@@ -57,12 +69,10 @@ const DashboardMenu = () => {
                 pt: 2,
               }}
             >
-              Hi, Tolu
+              Hi, {user.displayName.split(" ")[0]}
             </Typography>
           )}
-          <Typography sx={{ fontSize: "0.7rem" }}>
-            Tuesday, 7th March 2023
-          </Typography>
+          <Typography sx={{ fontSize: "0.7rem" }}>{getDate()}</Typography>
         </Stack>
         <Stack
           direction="row"
@@ -87,7 +97,7 @@ const DashboardMenu = () => {
               sx={{ height: "25px", width: "25px" }}
             />
             <Typography sx={{ ml: 1, fontWeight: "bold", color: "#000000" }}>
-              Tolu
+              {user.displayName.split(" ")[0]}
             </Typography>
           </IconButton>
           <IconButton
