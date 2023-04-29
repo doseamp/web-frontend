@@ -23,6 +23,7 @@ import { UtilsContext } from "../contexts/UtilsContext";
 import { signup } from "../utils/AuthFn";
 import { countries } from "../utils/Countries";
 import Navbar from "../components/Navbar";
+import axios from "axios";
 
 const Signup = () => {
   const [firstName, setFirstName] = useState();
@@ -117,19 +118,16 @@ const Signup = () => {
     },
   };
 
-  useMemo(() => {
-    fetch("http://ip-api.com/json")
-      .then((res) => res.json())
-      .then((response) => {
-        setDefaultCountry(response.country);
-        const name = countries.find((item) => item.name === defaultCountry);
-        console.log("in here");
-        setCountryCode(name.mobileCode);
-        setCountry(defaultCountry);
-      })
-      .catch((data, status) => {
-        ("Request failed");
-      });
+  useMemo(async () => {
+    try {
+      const { data } = await axios.get("https://ipapi.co/json/");
+      setDefaultCountry(data.country_name);
+      const name = countries.find((item) => item.name === defaultCountry);
+      setCountryCode(name.mobileCode);
+      setCountry(defaultCountry);
+    } catch (error) {
+      return "Request failed";
+    }
   }, [defaultCountry]);
 
   return (

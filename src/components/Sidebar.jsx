@@ -34,8 +34,13 @@ const Sidebar = ({ pages, utils }) => {
           },
         }}
       >
-        <Toolbar>
-          <img src="logo.png" alt="logo" style={{ width: 175, height: 90 }} />
+        <Toolbar sx={{ mb: 1 }}>
+          <Box
+            component="img"
+            src="logo.png"
+            alt="logo"
+            style={{ width: 175, height: 50 }}
+          />
         </Toolbar>
 
         <Box display="flex" flexDirection="column">
