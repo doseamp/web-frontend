@@ -10,6 +10,7 @@ import RootLayout from "./layouts/RootLayout";
 // pages
 import Home from "./pages/Home";
 import Signup from "./pages/Signup";
+import SignupEmail from "./pages/SignupEmail";
 import Login from "./pages/Login";
 import ConfirmEmail from "./pages/ConfirmEmail";
 import Dashboard from "./pages/Dashboard";
@@ -32,6 +33,7 @@ function App() {
         <Route element={<RestrictedRoutes />}>
           <Route index element={<Home />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/signup/email" element={<SignupEmail />} />
           <Route path="/login" element={<Login />} />
           <Route path="/confirm-email" element={<ConfirmEmail />} />
         </Route>
