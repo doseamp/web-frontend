@@ -217,7 +217,7 @@ const Signup = () => {
             variant="h4"
             sx={{ fontWeight: "bold", pb: 4 }}
           >
-            Payonize Login
+            Payonize Sign up
           </Typography>
 
           <Button
