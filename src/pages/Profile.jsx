@@ -46,7 +46,7 @@ const Profile = () => {
             Profile
           </Typography>
 
-          <Card sx={{ width: "80%", mx: "auto" }}>
+          <Card sx={{ width: { xs: "100%", md: "80%" }, mx: "auto" }}>
             <CardContent sx={{ px: 2, py: 4 }}>
               <Box justifyContent="center" sx={{ position: "relative" }}>
                 <Box
@@ -63,7 +63,9 @@ const Profile = () => {
                   </Box>
                 </Box>
 
-                <Box sx={{ width: "70%", mx: "auto", mt: 4 }}>
+                <Box
+                  sx={{ width: { xs: "80%", md: "70%" }, mx: "auto", mt: 4 }}
+                >
                   <label>Account Name</label>
                   <Box
                     display="flex"
@@ -77,11 +79,21 @@ const Profile = () => {
                     }}
                   >
                     <Typography variant="body2">{user.displayName}</Typography>
-                    <CheckIcon sx={{ ml: "auto" }} />
+                    <CheckIcon
+                      sx={{
+                        ml: "auto",
+                        display: {
+                          xs: "none",
+                          md: "flex",
+                        },
+                      }}
+                    />
                   </Box>
                 </Box>
 
-                <Box sx={{ width: "70%", mx: "auto", mt: 4 }}>
+                <Box
+                  sx={{ width: { xs: "80%", md: "70%" }, mx: "auto", mt: 4 }}
+                >
                   <label>Email</label>
                   <Box
                     display="flex"
@@ -95,11 +107,21 @@ const Profile = () => {
                     }}
                   >
                     <Typography variant="body2">{user.email}</Typography>
-                    <CheckIcon sx={{ ml: "auto" }} />
+                    <CheckIcon
+                      sx={{
+                        ml: "auto",
+                        display: {
+                          xs: "none",
+                          md: "flex",
+                        },
+                      }}
+                    />
                   </Box>
                 </Box>
 
-                <Box sx={{ width: "70%", mx: "auto", mt: 4 }}>
+                <Box
+                  sx={{ width: { xs: "80%", md: "70%" }, mx: "auto", mt: 4 }}
+                >
                   <label>Phone Number</label>
                   <Box
                     display="flex"
@@ -113,11 +135,21 @@ const Profile = () => {
                     }}
                   >
                     <Typography variant="body2">080123446789</Typography>
-                    <CheckIcon sx={{ ml: "auto" }} />
+                    <CheckIcon
+                      sx={{
+                        ml: "auto",
+                        display: {
+                          xs: "none",
+                          md: "flex",
+                        },
+                      }}
+                    />
                   </Box>
                 </Box>
 
-                <Box sx={{ width: "70%", mx: "auto", mt: 4 }}>
+                <Box
+                  sx={{ width: { xs: "80%", md: "70%" }, mx: "auto", mt: 4 }}
+                >
                   <label>Date of Birth</label>
                   <Box
                     display="flex"
@@ -131,11 +163,21 @@ const Profile = () => {
                     }}
                   >
                     <Typography variant="body2">18-06-2000</Typography>
-                    <CheckIcon sx={{ ml: "auto" }} />
+                    <CheckIcon
+                      sx={{
+                        ml: "auto",
+                        display: {
+                          xs: "none",
+                          md: "flex",
+                        },
+                      }}
+                    />
                   </Box>
                 </Box>
 
-                <Box sx={{ width: "70%", mx: "auto", mt: 4 }}>
+                <Box
+                  sx={{ width: { xs: "80%", md: "70%" }, mx: "auto", mt: 4 }}
+                >
                   <label>Identification</label>
                   <Box
                     display="flex"

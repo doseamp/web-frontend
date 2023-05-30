@@ -41,7 +41,7 @@ const Security = () => {
             Security
           </Typography>
 
-          <Card sx={{ width: "80%", mx: "auto" }}>
+          <Card sx={{ width: { xs: "100%", md: "80%" }, mx: "auto" }}>
             <CardContent sx={{ px: 2, py: 4 }}>
               <Box justifyContent="center" sx={{ position: "relative" }}>
                 <Typography sx={{ fontWeight: "bold", textAlign: "center" }}>

@@ -46,7 +46,7 @@ const Account = () => {
             Account
           </Typography>
 
-          <Card sx={{ width: "80%", mx: "auto" }}>
+          <Card sx={{ width: { xs: "100%", md: "80%" }, mx: "auto" }}>
             <CardContent sx={{ px: 2, py: 4 }}>
               <Box justifyContent="center" sx={{ position: "relative" }}>
                 <Box
@@ -68,7 +68,7 @@ const Account = () => {
                   sx={{
                     py: 2,
                     px: 4,
-                    width: "70%",
+                    width: { xs: "80%", md: "70%" },
                     boxShadow: 1,
                     mt: 4,
                     mx: "auto",
@@ -89,14 +89,16 @@ const Account = () => {
                   sx={{
                     py: 2,
                     px: 4,
-                    width: "70%",
+                    width: { xs: "80%", md: "70%" },
                     boxShadow: 1,
                     mt: 4,
                     mx: "auto",
+                    alignItems: "center",
                     ":hover": {
                       cursor: "pointer",
                     },
                   }}
+                  onClick={() => navigate("/statement")}
                 >
                   <Typography variant="body2" sx={{ fontWeight: "bold" }}>
                     Statement &amp; Reports
@@ -109,7 +111,7 @@ const Account = () => {
                   sx={{
                     py: 2,
                     px: 4,
-                    width: "70%",
+                    width: { xs: "80%", md: "70%" },
                     boxShadow: 1,
                     mt: 4,
                     mx: "auto",
@@ -117,6 +119,7 @@ const Account = () => {
                       cursor: "pointer",
                     },
                   }}
+                  onClick={() => navigate("/security")}
                 >
                   <Typography variant="body2" sx={{ fontWeight: "bold" }}>
                     Security
@@ -129,7 +132,7 @@ const Account = () => {
                   sx={{
                     py: 2,
                     px: 4,
-                    width: "70%",
+                    width: { xs: "80%", md: "70%" },
                     boxShadow: 1,
                     mt: 4,
                     mb: 2,
@@ -138,6 +141,7 @@ const Account = () => {
                       cursor: "pointer",
                     },
                   }}
+                  onClick={() => navigate("/support")}
                 >
                   <Typography variant="body2" sx={{ fontWeight: "bold" }}>
                     Support

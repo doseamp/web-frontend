@@ -41,14 +41,16 @@ const Statement = () => {
             Statement
           </Typography>
 
-          <Card sx={{ width: "80%", mx: "auto" }}>
+          <Card sx={{ width: { xs: "100%", md: "80%" }, mx: "auto" }}>
             <CardContent sx={{ px: 2, py: 4 }}>
               <Box justifyContent="center" sx={{ position: "relative" }}>
                 <Typography sx={{ fontWeight: "bold", textAlign: "center" }}>
                   Get Statement
                 </Typography>
 
-                <Box sx={{ width: "70%", mx: "auto", mt: 4 }}>
+                <Box
+                  sx={{ width: { xs: "80%", md: "70%" }, mx: "auto", mt: 4 }}
+                >
                   <label>Start Date</label>
                   <Box
                     display="flex"
@@ -78,7 +80,9 @@ const Statement = () => {
                   </Box>
                 </Box>
 
-                <Box sx={{ width: "70%", mx: "auto", mt: 4 }}>
+                <Box
+                  sx={{ width: { xs: "80%", md: "70%" }, mx: "auto", mt: 4 }}
+                >
                   <label>End Date</label>
                   <Box
                     display="flex"
@@ -108,7 +112,9 @@ const Statement = () => {
                   </Box>
                 </Box>
 
-                <Box sx={{ width: "70%", mx: "auto", mt: 4 }}>
+                <Box
+                  sx={{ width: { xs: "80%", md: "70%" }, mx: "auto", mt: 4 }}
+                >
                   <Button
                     className="buttonStyle"
                     type="submit"

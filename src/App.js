@@ -18,13 +18,19 @@ import Transactions from "./pages/Transactions";
 import Wallets from "./pages/Wallets";
 import WalletDetails from "./pages/WalletDetails";
 import Help from "./pages/Help";
-import New from "./pages/New";
 import CreateTransaction1 from "./pages/CreateTransaction1";
 import CreateTransaction2 from "./pages/CreateTransaction2";
 import CreateTransaction3 from "./pages/CreateTransaction3";
 import CreateTransaction4 from "./pages/CreateTransaction4";
+import Account from "./pages/Account";
 import PrivateRoutes from "./utils/PrivateRoutes";
 import RestrictedRoutes from "./utils/RestrictedRoutes";
+import Profile from "./pages/Profile";
+import Statement from "./pages/Statement";
+import Security from "./pages/Security";
+import Support from "./pages/Support";
+import FAQs from "./pages/FAQs";
+import Kyc from "./pages/Kyc";
 
 function App() {
   const router = createBrowserRouter(
@@ -38,6 +44,7 @@ function App() {
           <Route path="/confirm-email" element={<ConfirmEmail />} />
         </Route>
         <Route element={<PrivateRoutes />}>
+          <Route path="/kyc" element={<Kyc />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/transactions" element={<Transactions />} />
           <Route path="/wallets" element={<Wallets />} />
@@ -58,8 +65,13 @@ function App() {
             path="/transactions/create/4"
             element={<CreateTransaction4 />}
           />
+          <Route path="/account" element={<Account />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/statement" element={<Statement />} />
+          <Route path="/security" element={<Security />} />
+          <Route path="/support" element={<Support />} />
+          <Route path="/faq" element={<FAQs />} />
           <Route path="/help" element={<Help />} />
-          <Route path="/new" element={<New />} />
         </Route>
       </Route>
     )

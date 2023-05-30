@@ -90,7 +90,7 @@ const DashboardMenu = () => {
           <IconButton sx={{ color: "#000000" }}>
             <SettingsIcon />
           </IconButton>
-          <IconButton>
+          <IconButton onClick={() => navigate("/account")}>
             <Avatar
               alt="User"
               src="user.png"
