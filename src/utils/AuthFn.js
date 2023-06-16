@@ -10,7 +10,8 @@ export const signup = async (
   lastName,
   email,
   phoneNumber,
-  password
+  password,
+  acceptMU
 ) => {
   try {
     const { data } = await axios({
@@ -22,6 +23,7 @@ export const signup = async (
         email,
         phoneNumber,
         password,
+        isOnEmailList: acceptMU,
       },
     });
     return data;

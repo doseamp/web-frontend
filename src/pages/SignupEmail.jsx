@@ -59,7 +59,8 @@ const SignupEmail = () => {
     email,
     phoneNumber,
     password,
-    confirmPassword
+    confirmPassword,
+    acceptMU
   ) => {
     try {
       setLoading(true);
@@ -71,7 +72,7 @@ const SignupEmail = () => {
         throw Error("Passwords are not the same");
       }
 
-      await signup(firstName, lastName, email, phoneNumber, password);
+      await signup(firstName, lastName, email, phoneNumber, password, acceptMU);
       setLoading(false);
       navigate("/confirm-email");
     } catch (error) {
