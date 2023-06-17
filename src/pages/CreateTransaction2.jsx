@@ -33,7 +33,7 @@ const CreateTransaction2 = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const limitChar = 10;
-  const baseUrl = process.env.REACT_APP_BASE_URL;
+
   console.log(bankList);
   console.log(bank);
   console.log(amount);
@@ -43,7 +43,7 @@ const CreateTransaction2 = () => {
   useEffect(() => {
     const listBanks = async () => {
       const { data } = await axios({
-        url: `${baseUrl}/utils/list_banks`,
+        url: `${process.env.REACT_APP_BASE_URL}/utils/list_banks`,
         method: "get",
       });
       const banks = [];
@@ -58,7 +58,7 @@ const CreateTransaction2 = () => {
   if (accountNo.length === 10) {
     const getAccName = async () => {
       const { data } = await axios({
-        url: `${baseUrl}/utils/account_name`,
+        url: `${process.env.REACT_APP_BASE_URL}/utils/account_name`,
         method: "post",
         data: {
           account_number: accountNo,

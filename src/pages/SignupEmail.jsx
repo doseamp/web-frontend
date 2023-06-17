@@ -196,7 +196,8 @@ const SignupEmail = () => {
                   email,
                   phoneNumber,
                   password,
-                  confirmPassword
+                  confirmPassword,
+                  acceptMU
                 );
               }}
             >
@@ -402,7 +403,8 @@ const SignupEmail = () => {
                 email,
                 phoneNumber,
                 password,
-                confirmPassword
+                confirmPassword,
+                acceptMU
               );
             }}
           >
