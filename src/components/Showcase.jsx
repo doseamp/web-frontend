@@ -11,20 +11,20 @@ import {
 
 const Showcase = () => {
   const theme = useTheme();
-  console.log(theme);
   const md = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
-    <Box
-      sx={{
-        pb: 4,
-        px: {
-          xs: 2,
-          md: 8,
-        },
-      }}
-    >
-      <Container maxWidth="xl">
+    <Box>
+      <Container
+        maxWidth="lg"
+        sx={{
+          py: 4,
+          px: {
+            xs: 2,
+            md: 12,
+          },
+        }}
+      >
         <Grid container alignItems="center" justifyContent="space-between">
           <Grid item xs={12} md={6}>
             <Typography

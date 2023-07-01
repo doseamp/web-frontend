@@ -6,7 +6,7 @@ const MainMenu = ({ pages }) => {
     <Stack
       direction="row"
       sx={{
-        marginLeft: "auto",
+        ml: 10,
         display: {
           xs: "none",
           md: "flex",
@@ -19,6 +19,7 @@ const MainMenu = ({ pages }) => {
           to={page.route}
           style={{
             textDecoration: "none",
+            margin: "0px 16px 0px",
           }}
         >
           <Button
@@ -26,14 +27,13 @@ const MainMenu = ({ pages }) => {
             size="small"
             sx={{
               py: 1,
-              px: 2,
-              mx: 1,
               color: "#000000",
               fontWeight: "bold",
               textTransform: "capitalize",
               background: "#ffffff",
               ":hover": {
                 boxShadow: "#54adf3",
+                background: "#ffffff",
               },
             }}
           >
@@ -41,32 +41,6 @@ const MainMenu = ({ pages }) => {
           </Button>
         </Link>
       ))}
-
-      <Link
-        to="/signup"
-        style={{
-          textDecoration: "none",
-        }}
-      >
-        <Button
-          className="buttonStyle"
-          size="small"
-          sx={{
-            py: 1,
-            px: 2,
-            mx: 1,
-            color: "#000000",
-            fontWeight: "bold",
-            textTransform: "capitalize",
-            background: "#54adf3",
-            ":hover": {
-              background: "#54adf3",
-            },
-          }}
-        >
-          Sign up
-        </Button>
-      </Link>
     </Stack>
   );
 };

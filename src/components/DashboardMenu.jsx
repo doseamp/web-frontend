@@ -12,10 +12,26 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import SettingsIcon from "@mui/icons-material/Settings";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { useContext } from "react";
+import { signout } from "../utils/AuthFn";
+import { useNavigate } from "react-router-dom";
 
 const DashboardMenu = () => {
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
   console.log(user);
+  const getDate = () => {
+    const date = new Date();
+
+    const options = {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    };
+
+    return date.toLocaleString("en-IN", options);
+  };
+
   return (
     <AppBar
       className="headingStyle"
@@ -53,12 +69,10 @@ const DashboardMenu = () => {
                 pt: 2,
               }}
             >
-              Hi, Tolu
+              Hi, {user.displayName.split(" ")[0]}
             </Typography>
           )}
-          <Typography sx={{ fontSize: "0.7rem" }}>
-            Tuesday, 7th March 2023
-          </Typography>
+          <Typography sx={{ fontSize: "0.7rem" }}>{getDate()}</Typography>
         </Stack>
         <Stack
           direction="row"
@@ -76,17 +90,23 @@ const DashboardMenu = () => {
           <IconButton sx={{ color: "#000000" }}>
             <SettingsIcon />
           </IconButton>
-          <IconButton>
+          <IconButton onClick={() => navigate("/account")}>
             <Avatar
               alt="User"
               src="user.png"
               sx={{ height: "25px", width: "25px" }}
             />
             <Typography sx={{ ml: 1, fontWeight: "bold", color: "#000000" }}>
-              Tolu
+              {user.displayName.split(" ")[0]}
             </Typography>
           </IconButton>
-          <IconButton sx={{ color: "#000000" }}>
+          <IconButton
+            sx={{ color: "#000000" }}
+            onClick={() => {
+              navigate("/");
+              signout();
+            }}
+          >
             <LogoutIcon />
           </IconButton>
         </Stack>

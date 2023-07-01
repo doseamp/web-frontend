@@ -99,7 +99,12 @@ const Transactions = () => {
                 sx={{ ml: "auto", display: { xs: "none", md: "flex" } }}
                 gap={2}
               >
-                <Button sx={{ boxShadow: 1, p: 1 }}>
+                <Button
+                  sx={{ boxShadow: 1, p: 1 }}
+                  onClick={() => {
+                    navigate("/transactions/create/1");
+                  }}
+                >
                   <Typography
                     sx={{
                       fontWeight: "bold",

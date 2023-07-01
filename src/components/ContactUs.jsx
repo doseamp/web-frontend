@@ -13,38 +13,33 @@ const ContactUs = () => {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [businessType, setBusinessType] = useState("");
+  const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (
-    fullName,
-    email,
-    phoneNumber,
-    businessType,
-    message
-  ) => {
+  const handleSubmit = (fullName, email, phoneNumber, subject, message) => {
     setLoading(true);
     console.log({
       fullName,
       email,
       phoneNumber,
-      businessType,
+      subject,
       message,
     });
   };
 
   return (
-    <Box
-      sx={{
-        py: 4,
-        px: {
-          xs: 2,
-          md: 8,
-        },
-      }}
-    >
-      <Container maxWidth="xl">
+    <Box>
+      <Container
+        maxWidth="lg"
+        sx={{
+          py: 4,
+          px: {
+            xs: 2,
+            md: 12,
+          },
+        }}
+      >
         <Grid container justifyContent="space-between">
           <Grid item xs={12} md={5} sx={{ py: 2 }}>
             <Typography
@@ -64,13 +59,7 @@ const ContactUs = () => {
             <form
               onSubmit={(e) => {
                 e.preventDefault();
-                handleSubmit(
-                  fullName,
-                  email,
-                  phoneNumber,
-                  businessType,
-                  message
-                );
+                handleSubmit(fullName, email, phoneNumber, subject, message);
               }}
             >
               <label>Full Name</label>
@@ -116,7 +105,7 @@ const ContactUs = () => {
                 />
               </Box>
 
-              <label>Business Type</label>
+              <label>Subject</label>
               <TextField
                 type="text"
                 fullWidth
@@ -124,7 +113,7 @@ const ContactUs = () => {
                 size="small"
                 sx={{ mt: 1, mb: 2 }}
                 onChange={(e) => {
-                  setBusinessType(e.target.value);
+                  setSubject(e.target.value);
                 }}
                 inputProps={{
                   minLength: 3,
