@@ -20,7 +20,7 @@ const Kyc = () => {
   const [dob, setDOB] = useState();
   const [loading, setLoading] = useState(false);
   const { user } = useContext(AuthContext);
-  const baseUrl = "http://127.0.0.1:5000/api";
+  const baseUrl = process.env.REACT_APP_BASE_URL;
 
   const theme = useTheme();
   const md = useMediaQuery(theme.breakpoints.up("md"));
